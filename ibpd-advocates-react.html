@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBP & Dirman Advocate's | Law Firm</title>
+<meta name="description" content="IBP & Dirman Advocate's - Firma hukum futuristik dengan integritas, kualitas dan ketuntasan.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0f1b2d;--navy-light:#1a2a42;--navy-mid:#243b53;
+  --gold:#c9a84c;--gold-light:#e2c975;--gold-dim:rgba(201,168,76,0.15);
+  --teal:#0d9488;--teal-light:#14b8a6;--teal-dim:rgba(13,148,136,0.1);
+  --white:#fff;--off-white:#f8f9fb;
+  --g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;
+  --g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g800:#1f2937;--g900:#111827;
+  --radius:10px;--radius-lg:16px;
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+  --shadow:0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg:0 12px 28px rgba(0,0,0,0.12);
+  --shadow-xl:0 24px 48px rgba(0,0,0,0.14);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;color:var(--g800);background:var(--white);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul{list-style:none}h1,h2,h3,h4{line-height:1.2;font-family:'DM Serif Display','DM Sans',serif}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes typewriter{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+@keyframes countPulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes ripple{0%{transform:scale(0);opacity:0.6}100%{transform:scale(4);opacity:0}}
+
+.animate-item{opacity:0;transform:translateY(40px);transition:all 0.7s var(--ease)}
+.animate-item.visible{opacity:1;transform:translateY(0)}
+.animate-item.visible.delay-1{transition-delay:0.1s}
+.animate-item.visible.delay-2{transition-delay:0.2s}
+.animate-item.visible.delay-3{transition-delay:0.3s}
+.animate-item.visible.delay-4{transition-delay:0.4s}
+.animate-item.visible.delay-5{transition-delay:0.5s}
+
+.stagger-item{opacity:0;transform:translateY(30px) scale(0.97);transition:all 0.6s var(--ease)}
+.stagger-item.visible{opacity:1;transform:translateY(0) scale(1)}
+
+/* Scroll progress bar */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--teal));z-index:1001;transition:width 0.1s linear}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all 0.4s var(--ease);background:transparent}
+.nav.scrolled{background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--g200);box-shadow:var(--shadow-sm)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav-logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.1rem;transition:color 0.3s}
+.nav-logo-icon{width:42px;height:42px;border-radius:10px;overflow:hidden;transition:transform 0.3s}
+.nav-logo-icon img{width:100%;height:100%;object-fit:cover}
+.nav-logo-icon:hover{transform:rotate(-5deg) scale(1.05)}
+.nav-links{display:flex;gap:8px}
+.nav-link-item{padding:8px 16px;font-size:0.88rem;font-weight:500;border-radius:8px;transition:all 0.3s;position:relative;font-family:'DM Sans',sans-serif}
+.nav-link-item:hover{background:var(--g100)}
+.nav-link-item.active{color:var(--teal);font-weight:600}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.lang-switch{display:flex;background:var(--g100);border-radius:24px;padding:3px;font-size:0.78rem;font-weight:600;font-family:'DM Sans',sans-serif}
+.lang-btn{padding:7px 16px;border-radius:22px;transition:all 0.3s;color:var(--g500)}
+.lang-btn.active{background:var(--white);color:var(--navy);box-shadow:var(--shadow-sm)}
+.nav-cta-btn{padding:10px 24px;background:var(--navy);color:var(--white);border-radius:8px;font-size:0.85rem;font-weight:600;transition:all 0.3s;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden}
+.nav-cta-btn:hover{background:var(--navy-light);transform:translateY(-1px);box-shadow:var(--shadow)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* For light nav on hero */
+.nav:not(.scrolled) .nav-logo{color:var(--white)}
+.nav:not(.scrolled) .nav-link-item{color:rgba(255,255,255,0.8)}
+.nav:not(.scrolled) .nav-link-item:hover{background:rgba(255,255,255,0.1);color:var(--white)}
+.nav:not(.scrolled) .nav-link-item.active{color:var(--gold-light);background:rgba(255,255,255,0.08)}
+.nav:not(.scrolled) .lang-switch{background:rgba(255,255,255,0.12)}
+.nav:not(.scrolled) .lang-btn{color:rgba(255,255,255,0.6)}
+.nav:not(.scrolled) .lang-btn.active{background:rgba(255,255,255,0.2);color:var(--white)}
+.nav:not(.scrolled) .nav-cta-btn{background:var(--gold);color:var(--navy)}
+.nav:not(.scrolled) .hamburger span{background:var(--white)}
+
+/* Mobile menu */
+.mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:998;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.mobile-overlay.open{opacity:1;pointer-events:auto}
+.mobile-panel{position:fixed;top:0;right:0;bottom:0;width:300px;background:var(--white);z-index:999;transform:translateX(100%);transition:transform 0.4s var(--ease);padding:80px 24px 24px;display:flex;flex-direction:column;gap:4px}
+.mobile-panel.open{transform:translateX(0)}
+.mobile-link{padding:14px 16px;font-size:1rem;font-weight:500;border-radius:10px;transition:all 0.2s;color:var(--g700)}
+.mobile-link:hover{background:var(--g50)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(145deg,rgba(15,27,45,0.88) 0%,rgba(26,42,66,0.85) 45%,rgba(30,58,95,0.88) 100%);overflow:hidden;padding-top:76px}
+.hero-bg-image{position:absolute;inset:0;z-index:0}
+.hero-bg-image img{width:100%;height:100%;object-fit:cover}
+.hero-bg-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.hero-bg-orb-1{width:600px;height:600px;top:-200px;right:-100px;background:rgba(201,168,76,0.07)}
+.hero-bg-orb-2{width:400px;height:400px;bottom:-100px;left:-100px;background:rgba(13,148,136,0.06)}
+.hero-grid-pattern{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2}
+.hero-content{animation:slideLeft 0.9s var(--ease) forwards}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);padding:8px 18px;border-radius:28px;font-size:0.78rem;color:var(--gold-light);font-weight:600;margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-badge-dot{width:8px;height:8px;background:var(--teal-light);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:400;color:var(--white);margin-bottom:20px;line-height:1.1}
+.hero h1 .gold{color:var(--gold)}
+.hero-desc{font-size:1.05rem;color:rgba(255,255,255,0.65);max-width:500px;margin-bottom:36px;line-height:1.75;font-family:'DM Sans',sans-serif}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-gold{padding:15px 36px;background:var(--gold);color:var(--navy);border-radius:8px;font-weight:700;font-size:0.95rem;transition:all 0.3s;display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 12px 32px rgba(201,168,76,0.35)}
+.btn-ghost{padding:15px 36px;border:1.5px solid rgba(255,255,255,0.25);color:var(--white);border-radius:8px;font-weight:600;font-size:0.95rem;transition:all 0.3s;font-family:'DM Sans',sans-serif}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.05)}
+
+.hero-visual{animation:slideRight 0.9s 0.2s var(--ease) both}
+.hero-card-main{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:36px;position:relative}
+.hero-card-glow{position:absolute;top:-1px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-icon-box{width:52px;height:52px;background:var(--gold);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;animation:float 6s ease-in-out infinite}
+.hero-card-main h3{color:var(--white);font-size:1.25rem;margin-bottom:10px}
+.hero-card-main p{color:rgba(255,255,255,0.55);font-size:0.92rem;line-height:1.65;font-family:'DM Sans',sans-serif}
+.hero-mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.hero-mini-stat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px;text-align:center;transition:all 0.3s}
+.hero-mini-stat:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+.hero-mini-stat-num{font-size:1.7rem;font-weight:800;color:var(--gold);font-family:'DM Sans',sans-serif}
+.hero-mini-stat-label{font-size:0.7rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.12em;margin-top:4px;font-family:'DM Sans',sans-serif}
+
+/* Floating particles */
+.particle{position:absolute;border-radius:50%;background:rgba(201,168,76,0.15);pointer-events:none;animation:float 8s ease-in-out infinite}
+
+/* Section base */
+.section{padding:100px 0}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-label{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;font-family:'DM Sans',sans-serif;position:relative;padding-left:24px}
+.section-label::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:16px;height:2px;background:var(--teal)}
+.section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--navy);margin-bottom:16px}
+.section-desc{font-size:1rem;color:var(--g500);max-width:600px;line-height:1.75}
+
+/* About */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-img-area{position:relative}
+.about-img-box{width:100%;height:440px;border-radius:var(--radius-lg);position:relative;overflow:hidden}
+.about-img-box img{width:100%;height:100%;object-fit:cover}
+.about-img-box::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,27,45,0.15) 0%,rgba(13,148,136,0.1) 100%)}
+.about-float-card{position:absolute;bottom:-20px;right:-20px;background:var(--white);border-radius:14px;padding:20px 24px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:14px;animation:float 5s ease-in-out infinite 1s}
+.about-float-card-num{font-size:1.6rem;font-weight:800;color:var(--teal);font-family:'DM Sans',sans-serif}
+.about-float-card-text{font-size:0.78rem;color:var(--g500);font-weight:600;text-transform:uppercase;letter-spacing:0.08em}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+.about-feat{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--g50);border-radius:var(--radius);transition:all 0.3s;cursor:default}
+.about-feat:hover{background:var(--white);box-shadow:var(--shadow);transform:translateX(4px)}
+.about-feat-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.about-feat-icon.teal{background:var(--teal-dim);color:var(--teal)}
+.about-feat-icon.gold{background:var(--gold-dim);color:var(--gold)}
+.about-feat-icon.navy{background:rgba(15,27,45,0.08);color:var(--navy)}
+.about-feat-text{font-size:0.84rem;font-weight:600;color:var(--navy);font-family:'DM Sans',sans-serif}
+
+/* Vision Mission */
+.vm-section{background:var(--off-white);position:relative}
+.vm-bg-image{position:absolute;inset:0;opacity:0.04;z-index:0}
+.vm-bg-image img{width:100%;height:100%;object-fit:cover}
+.vm-section .container{position:relative;z-index:1}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+.vm-card{background:var(--white);border-radius:var(--radius-lg);padding:44px 36px;border:1px solid var(--g200);transition:all 0.4s var(--ease);position:relative;overflow:hidden;cursor:default}
+.vm-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-6px)}
+.vm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;transition:height 0.3s}
+.vm-card:hover::before{height:6px}
+.vm-card.visi::before{background:linear-gradient(90deg,var(--navy),var(--navy-mid))}
+.vm-card.misi::before{background:linear-gradient(90deg,var(--teal),var(--teal-light))}
+.vm-card-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:1.5rem;transition:transform 0.3s}
+.vm-card:hover .vm-card-icon{transform:scale(1.1) rotate(-5deg)}
+.vm-card.visi .vm-card-icon{background:rgba(15,27,45,0.07)}
+.vm-card.misi .vm-card-icon{background:var(--teal-dim)}
+.vm-card h3{font-size:1.35rem;color:var(--navy);margin-bottom:14px}
+.vm-card p{color:var(--g600);line-height:1.8;font-family:'DM Sans',sans-serif}
+
+/* Services */
+.services{background:var(--white)}
+.services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:48px}
+.svc-card{background:var(--white);border:1px solid var(--g200);border-radius:var(--radius-lg);padding:32px 24px;transition:all 0.4s var(--ease);position:relative;overflow:hidden;cursor:default}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transition:transform 0.4s var(--ease)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-card:nth-child(1)::after{background:var(--navy)}
+.svc-card:nth-child(2)::after{background:#d97706}
+.svc-card:nth-child(3)::after{background:var(--teal)}
+.svc-card:nth-child(4)::after{background:#db2777}
+.svc-card:nth-child(5)::after{background:#2563eb}
+.svc-card:hover{border-color:transparent;box-shadow:var(--shadow-lg);transform:translateY(-8px)}
+.svc-num{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;color:var(--teal);margin-bottom:18px;font-family:'DM Sans',sans-serif}
+.svc-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:transform 0.3s}
+.svc-card:hover .svc-icon{transform:scale(1.1)}
+.svc-card h3{font-size:0.98rem;font-weight:700;color:var(--navy);margin-bottom:8px;font-family:'DM Sans',sans-serif}
+.svc-card p{font-size:0.84rem;color:var(--g500);line-height:1.6;font-family:'DM Sans',sans-serif}
+.svc-tag{display:inline-block;margin-top:14px;padding:5px 12px;background:var(--g50);border-radius:20px;font-size:0.68rem;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:0.06em;font-family:'DM Sans',sans-serif}
+
+/* Stats */
+.stats-section{background:var(--navy);padding:88px 0;position:relative;overflow:hidden}
+.stats-section::before{content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(201,168,76,0.05),transparent 60%)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;z-index:1}
+.stat-item{text-align:center;padding:32px;border-radius:var(--radius-lg);transition:all 0.3s;cursor:default}
+.stat-item:hover{background:rgba(255,255,255,0.04)}
+.stat-num{font-size:clamp(2.8rem,5vw,3.8rem);font-weight:800;color:var(--gold);line-height:1;font-family:'DM Sans',sans-serif;position:relative;display:inline-block}
+.stat-num .suffix{font-size:0.6em;position:relative;top:-0.1em}
+.stat-label{font-size:0.82rem;color:rgba(255,255,255,0.9);font-weight:600;margin-top:10px;text-transform:uppercase;letter-spacing:0.12em;font-family:'DM Sans',sans-serif}
+.stat-desc{font-size:0.78rem;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.5;font-family:'DM Sans',sans-serif}
+.stat-divider{width:40px;height:3px;background:var(--gold);opacity:0.3;margin:10px auto 0;border-radius:2px}
+
+/* Advantage */
+.advantage{background:var(--off-white);position:relative;overflow:hidden}
+.adv-bg-image{position:absolute;inset:0;opacity:0.05;z-index:0}
+.adv-bg-image img{width:100%;height:100%;object-fit:cover}
+.advantage .container{position:relative;z-index:1}
+.adv-quote{font-size:1.1rem;font-style:italic;color:var(--g600);margin-top:8px;margin-bottom:48px;max-width:580px}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.adv-card{background:var(--white);border-radius:var(--radius-lg);padding:40px 32px;border:1px solid var(--g200);transition:all 0.4s var(--ease);text-align:center;cursor:default;position:relative;overflow:hidden}
+.adv-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-6px);border-color:transparent}
+.adv-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:80px;border-radius:50%;filter:blur(40px);opacity:0;transition:opacity 0.4s}
+.adv-card:hover::before{opacity:1}
+.adv-card:nth-child(1)::before{background:var(--navy)}
+.adv-card:nth-child(2)::before{background:var(--teal)}
+.adv-card:nth-child(3)::before{background:var(--gold)}
+.adv-num{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-weight:800;font-size:1.1rem;color:var(--white);transition:transform 0.3s;font-family:'DM Sans',sans-serif;position:relative;z-index:1}
+.adv-card:hover .adv-num{transform:scale(1.15)}
+.adv-card:nth-child(1) .adv-num{background:var(--navy)}
+.adv-card:nth-child(2) .adv-num{background:var(--teal)}
+.adv-card:nth-child(3) .adv-num{background:var(--gold);color:var(--navy)}
+.adv-card h3{font-size:1.2rem;color:var(--navy);margin-bottom:10px;position:relative;z-index:1}
+.adv-card p{font-size:0.88rem;color:var(--g500);line-height:1.65;font-family:'DM Sans',sans-serif;position:relative;z-index:1}
+
+/* CSR */
+.csr{background:var(--white)}
+.csr-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+.csr-card{display:flex;align-items:flex-start;gap:18px;padding:28px;background:var(--g50);border-radius:var(--radius-lg);transition:all 0.4s var(--ease);cursor:default;border:1px solid transparent}
+.csr-card:hover{background:var(--white);box-shadow:var(--shadow-lg);border-color:var(--g200);transform:translateY(-4px)}
+.csr-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.3s}
+.csr-card:hover .csr-icon{transform:rotate(-8deg) scale(1.1)}
+.csr-card h3{font-size:1rem;color:var(--navy);margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:700}
+.csr-card p{font-size:0.85rem;color:var(--g500);line-height:1.6;font-family:'DM Sans',sans-serif}
+
+/* Team */
+.team{background:var(--off-white)}
+.team-sec-label{font-size:0.76rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g200);font-family:'DM Sans',sans-serif}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:48px}
+.team-card{background:var(--white);border-radius:var(--radius-lg);padding:32px 20px;text-align:center;border:1px solid var(--g200);transition:all 0.4s var(--ease);cursor:default}
+.team-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-6px);border-color:transparent}
+.team-avatar{width:86px;height:86px;border-radius:50%;margin:0 auto 14px;overflow:hidden;transition:transform 0.3s;border:3px solid var(--g200)}
+.team-avatar img{width:100%;height:100%;object-fit:cover}
+.team-avatar.initials{display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;color:var(--white);font-family:'DM Sans',sans-serif;border:none}
+.team-card:hover .team-avatar{transform:scale(1.1);border-color:var(--gold)}
+.team-card h4{font-size:0.88rem;color:var(--navy);margin-bottom:4px;font-family:'DM Sans',sans-serif;font-weight:700}
+.team-role{font-size:0.74rem;color:var(--g400);font-family:'DM Sans',sans-serif}
+
+/* Contact */
+.contact{background:var(--navy);position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;bottom:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(13,148,136,0.06),transparent 60%)}
+.contact .section-label{color:var(--gold-light)}
+.contact .section-label::before{background:var(--gold)}
+.contact .section-title{color:var(--white)}
+.contact .section-desc{color:rgba(255,255,255,0.55)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:48px;position:relative;z-index:1}
+.contact-list{display:flex;flex-direction:column;gap:24px;margin-top:28px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;padding:16px;border-radius:12px;transition:all 0.3s;cursor:default}
+.contact-item:hover{background:rgba(255,255,255,0.04)}
+.contact-item-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.3s}
+.contact-item:hover .contact-item-icon{transform:scale(1.08)}
+.contact-item h4{font-size:0.88rem;color:var(--white);margin-bottom:4px;font-family:'DM Sans',sans-serif;font-weight:700}
+.contact-item p{font-size:0.85rem;color:rgba(255,255,255,0.45);font-family:'DM Sans',sans-serif}
+
+.contact-form-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:40px;backdrop-filter:blur(12px)}
+.contact-form-box h3{color:var(--white);font-size:1.15rem;margin-bottom:24px}
+.form-grp{margin-bottom:18px}
+.form-lbl{display:block;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.65);margin-bottom:8px;font-family:'DM Sans',sans-serif}
+.form-inp{width:100%;padding:13px 16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:var(--white);font-size:0.9rem;font-family:'DM Sans',sans-serif;transition:all 0.3s;outline:none}
+.form-inp:focus{border-color:var(--gold);background:rgba(255,255,255,0.09);box-shadow:0 0 0 3px rgba(201,168,76,0.15)}
+.form-inp::placeholder{color:rgba(255,255,255,0.25)}
+textarea.form-inp{resize:vertical;min-height:110px}
+.form-submit-btn{width:100%;padding:14px;background:var(--gold);color:var(--navy);border-radius:8px;font-weight:700;font-size:0.95rem;transition:all 0.3s;font-family:'DM Sans',sans-serif}
+.form-submit-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.3)}
+.form-success{text-align:center;padding:40px 20px;color:var(--white)}
+.form-success h3{margin-bottom:10px}
+.form-success p{color:rgba(255,255,255,0.6);font-family:'DM Sans',sans-serif}
+
+/* Footer */
+.footer{background:var(--g900);padding:36px 0;border-top:1px solid rgba(255,255,255,0.04)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-text{font-size:0.8rem;color:rgba(255,255,255,0.35);font-family:'DM Sans',sans-serif}
+.footer-links{display:flex;gap:24px}
+.footer-link{font-size:0.8rem;color:rgba(255,255,255,0.35);transition:color 0.3s;font-family:'DM Sans',sans-serif}
+.footer-link:hover{color:var(--gold)}
+
+/* Back to top */
+.btt{position:fixed;bottom:28px;right:28px;width:48px;height:48px;background:var(--navy);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transition:all 0.4s;z-index:100}
+.btt.show{opacity:1;visibility:visible}
+.btt:hover{background:var(--navy-light);transform:translateY(-3px)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+}
+@media(max-width:768px){
+  .section{padding:72px 0}
+  .nav-links,.nav-cta-btn{display:none}
+  .hamburger{display:flex}
+  .vm-grid,.csr-grid{grid-template-columns:1fr}
+  .stats-grid,.adv-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .about-features{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+  .hero-btns{flex-direction:column}
+}
+@media(max-width:480px){
+  .container{padding:0 16px}
+  .services-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .contact-form-box{padding:24px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback, createContext, useContext, useMemo } = React;
+
+// ============ LANGUAGE CONTEXT ============
+const translations = {
+  nav: {
+    about: { id: 'Tentang', en: 'About' },
+    services: { id: 'Layanan', en: 'Services' },
+    whyUs: { id: 'Keunggulan', en: 'Why Us' },
+    team: { id: 'Tim', en: 'Team' },
+    contact: { id: 'Kontak', en: 'Contact' },
+    cta: { id: 'Konsultasi', en: 'Consultation' },
+  },
+  hero: {
+    badge: { id: 'Firma Hukum Terpercaya', en: 'Established Law Firm' },
+    h1a: { id: 'Hukum dengan', en: 'Justice with' },
+    h1b: { id: 'Integritas, Kualitas & Ketuntasan', en: 'Integrity, Quality & Completeness' },
+    desc: {
+      id: 'IBP & Dirman Advocate\'s adalah firma hukum futuristik yang hadir untuk menjawab persoalan hukum dengan integritas, kualitas dan tuntas pada semua sektor hukum.',
+      en: 'IBP & Dirman Advocate\'s is a futuristic law firm providing optimal legal services across all legal sectors with integrity, quality, and thoroughness.'
+    },
+    btn1: { id: 'Konsultasi Gratis', en: 'Free Consultation' },
+    btn2: { id: 'Layanan Kami', en: 'Our Services' },
+    cardTitle: { id: 'Keunggulan Hukum Lintas Sektor', en: 'Multi-Sector Legal Excellence' },
+    cardDesc: { id: 'Pelayanan jasa hukum komprehensif: Perdata, Pidana, Korporasi, Tata Usaha Negara, dan Tatanegara.', en: 'Comprehensive legal services across civil, criminal, corporate, administrative, and constitutional law.' },
+    stat1: { id: 'Kolaborasi', en: 'Collaborations' },
+    stat2: { id: 'Proyek Hukum', en: 'Legal Projects' },
+  },
+  about: {
+    label: { id: 'Tentang Firma', en: 'About the Firm' },
+    title: { id: 'Firma Hukum Futuristik untuk Tantangan Hukum Modern', en: 'Futuristic Law Firm for Modern Legal Challenges' },
+    p1: { id: 'IBP & Dirman Advocate\'s adalah firma hukum futuristik yang hadir untuk menjawab persoalan hukum dengan integritas, kualitas dan tuntas, sesuai pedoman peraturan perundang-undangan serta menjiwai prinsip keadilan, kepastian dan kemanfaatan hukum sebagai Philosophische Grondslag.', en: 'IBP & Dirman Advocate\'s is a futuristic law firm committed to addressing legal issues with integrity, quality, and completeness, guided by prevailing laws and regulations while embodying the principles of justice, legal certainty, and legal benefit as its Philosophische Grondslag.' },
+    p2: { id: 'Kami memberikan pelayanan optimal pada semua sektor hukum: Pidana, Perdata, Korporasi, Tata Usaha Negara, Tatanegara, Kepailitan, serta konsultan hukum pada semua lingkup.', en: 'We provide optimal services across all legal sectors, including Criminal, Civil, Corporate, Administrative, Constitutional Law, and Bankruptcy, as well as legal consulting.' },
+    feat1: { id: 'Berbasis Integritas', en: 'Integrity-Driven' },
+    feat2: { id: 'Layanan Berkualitas', en: 'Quality Service' },
+    feat3: { id: 'Penyelesaian Tuntas', en: 'Thorough Solutions' },
+    feat4: { id: 'Jaringan Kolaboratif', en: 'Collaborative Network' },
+    floatLabel: { id: 'Tahun Pengalaman', en: 'Years Experience' },
+  },
+  vm: {
+    label: { id: 'Visi & Misi', en: 'Vision & Mission' },
+    title: { id: 'Prinsip Panduan Kami', en: 'Our Guiding Principles' },
+    visi: { id: 'Visi', en: 'Vision' },
+    visiText: { id: 'Memanifestasikan hukum dan penegakan hukum yang berkeadilan, berkepastian dan bermanfaat.', en: 'To manifest law and law enforcement that is just, certain, and beneficial for all.' },
+    misi: { id: 'Misi', en: 'Mission' },
+    misiText: { id: 'Memberikan pelayanan hukum yang adil, pasti dan bermanfaat pada semua kebutuhan klien. Melayani dengan integritas, kualitas dan tuntas.', en: 'To provide legal services that are fair, certain, and beneficial to all client needs. To serve with integrity, quality, and completeness.' },
+  },
+  svc: {
+    label: { id: 'Area Praktik', en: 'Practice Areas' },
+    title: { id: 'Produk & Layanan Utama', en: 'Key Products & Services' },
+    desc: { id: 'Solusi hukum komprehensif di semua area praktik utama, baik litigasi maupun non-litigasi.', en: 'Comprehensive legal solutions across all major practice areas, both litigation and non-litigation.' },
+    tag: { id: 'Litigasi & Non-Litigasi', en: 'Litigation & Non-Litigation' },
+    items: [
+      { name: { id: 'Hukum Perdata', en: 'Civil Law' }, desc: { id: 'Semua lingkup perdata termasuk kontrak, properti, warisan, dan hukum keluarga.', en: 'All civil law matters including contracts, property, inheritance, and family law.' } },
+      { name: { id: 'Hukum Pidana', en: 'Criminal Law' }, desc: { id: 'Pembelaan dan penuntutan pidana untuk semua jenis perkara pidana.', en: 'Criminal defense and prosecution across all types of criminal cases.' } },
+      { name: { id: 'Corporate Lawyer', en: 'Corporate Law' }, desc: { id: 'Konsultan hukum korporasi, M&A, kepatuhan, dan strukturisasi bisnis.', en: 'Corporate legal counsel, M&A, compliance, and business structuring.' } },
+      { name: { id: 'Hukum Tatanegara', en: 'Constitutional Law' }, desc: { id: 'Sengketa konstitusional dan judicial review di Mahkamah Konstitusi.', en: 'Constitutional disputes and judicial review at the Constitutional Court.' } },
+      { name: { id: 'Tata Usaha Negara', en: 'Administrative Law' }, desc: { id: 'Sengketa tata usaha negara dan permasalahan regulasi pemerintah.', en: 'Administrative law disputes and government regulatory matters.' } },
+    ],
+  },
+  stats: {
+    items: [
+      { num: 50, label: { id: 'Target Retainer', en: 'Retainer Targets' }, desc: { id: 'Kerjasama retainer korporasi per tahun', en: 'Corporate retainer partnerships per year' } },
+      { num: 60, label: { id: 'Perkara Litigasi', en: 'Litigation Cases' }, desc: { id: 'Perkara litigasi yang ditangani per tahun', en: 'Litigation cases handled annually' } },
+      { num: 60, label: { id: 'Konsultasi', en: 'Consultations' }, desc: { id: 'Layanan konsultasi non-litigasi per tahun', en: 'Non-litigation consultations per year' } },
+    ],
+  },
+  adv: {
+    label: { id: 'Keunggulan Kompetitif', en: 'Competitive Advantage' },
+    title: { id: 'Mengapa Memilih Kami', en: 'Why Choose Us' },
+    quote: { id: '\u201cIntegritas adalah Fondasi, Kualitas adalah Standar, Ketuntasan adalah Komitmen.\u201d', en: '\u201cIntegrity is the Foundation, Quality is the Standard, Completeness is the Commitment.\u201d' },
+    items: [
+      { name: { id: 'Integritas', en: 'Integrity' }, desc: { id: 'Integritas sebagai fondasi dalam setiap layanan hukum yang kami berikan.', en: 'Integrity as the foundation of every legal service we provide.' } },
+      { name: { id: 'Kualitas', en: 'Quality' }, desc: { id: 'Memberikan layanan hukum berkualitas tinggi dengan profesionalisme.', en: 'Delivering high-quality legal services with professional excellence.' } },
+      { name: { id: 'Ketuntasan', en: 'Completeness' }, desc: { id: 'Ketuntasan dalam setiap penyelesaian perkara adalah komitmen kami.', en: 'Thoroughness and completeness in every case resolution is our commitment.' } },
+    ],
+  },
+  csr: {
+    label: { id: 'Tanggung Jawab Sosial', en: 'Social Responsibility' },
+    title: { id: 'Tanggung Jawab Sosial Perusahaan', en: 'Corporate Social Responsibility' },
+    quote: { id: '\u201cPengabdian sosial dengan iman, ilmu dan amal.\u201d', en: '\u201cSocial service with faith, knowledge, and good deeds.\u201d' },
+    items: [
+      { name: { id: 'Edukasi', en: 'Education' }, desc: { id: 'Memberikan pelatihan dan seminar dalam lingkup hukum serta sosialisasi kesadaran hukum masyarakat.', en: 'Providing training, seminars in legal scope, and community legal awareness socialization.' } },
+      { name: { id: 'Bantuan Hukum Pro Bono', en: 'Pro Bono Legal Aid' }, desc: { id: 'Memberikan layanan hukum pro deo dan pro bono bagi masyarakat miskin yang membutuhkan bantuan hukum.', en: 'Providing pro deo and pro bono legal services for underprivileged communities.' } },
+      { name: { id: 'Amal Sosial', en: 'Social Charity' }, desc: { id: 'Komitmen turut serta dalam keadilan sosial dan bantuan sosial.', en: 'Commitment to participating in social justice and social assistance programs.' } },
+      { name: { id: 'Kontrol Sosial', en: 'Social Control' }, desc: { id: 'Bergandengan tangan dengan rakyat sebagai kontrol sosial.', en: 'Standing hand in hand with the people as a force for social oversight.' } },
+    ],
+  },
+  team: {
+    label: { id: 'Tim Kami', en: 'Our Team' },
+    title: { id: 'Profesional Hukum Kami', en: 'Meet Our Legal Professionals' },
+    desc: { id: 'Tim profesional hukum berpengalaman yang berkomitmen memberikan layanan terbaik.', en: 'A team of experienced legal professionals committed to delivering excellence.' },
+    pembina: { id: 'Pembina Utama', en: 'Principal Advisor' },
+    cmp: { id: 'Co-Managing Partners', en: 'Co-Managing Partners' },
+    assoc: { id: 'Associates', en: 'Associates' },
+  },
+  contact: {
+    label: { id: 'Hubungi Kami', en: 'Get in Touch' },
+    title: { id: 'Mari Diskusikan Kebutuhan Hukum Anda', en: "Let's Discuss Your Legal Needs" },
+    desc: { id: 'Hubungi kami untuk konsultasi. Kami siap memberikan solusi hukum terbaik untuk Anda.', en: 'Contact us for a consultation. We are ready to provide the best legal solutions for you.' },
+    address: { id: 'Alamat Kantor', en: 'Office Address' },
+    formTitle: { id: 'Kirim Pesan', en: 'Send Us a Message' },
+    name: { id: 'Nama Lengkap', en: 'Full Name' },
+    phone: { id: 'Nomor Telepon', en: 'Phone Number' },
+    message: { id: 'Pesan', en: 'Message' },
+    send: { id: 'Kirim Pesan', en: 'Send Message' },
+    success: { id: 'Pesan Terkirim!', en: 'Message Sent!' },
+    successDesc: { id: 'Terima kasih. Kami akan menghubungi Anda segera.', en: 'Thank you. We will contact you shortly.' },
+  },
+  footer: {
+    rights: { id: 'Hak cipta dilindungi.', en: 'All rights reserved.' },
+    privacy: { id: 'Kebijakan Privasi', en: 'Privacy Policy' },
+    terms: { id: 'Syarat Layanan', en: 'Terms of Service' },
+  },
+};
+
+const LangContext = createContext();
+const useLang = () => useContext(LangContext);
+const t = (obj, lang) => obj[lang] || obj.id;
+
+// ============ HOOKS ============
+function useInView(options = {}) {
+  const ref = useRef(null);
+  const [isVisible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setVisible(true); obs.unobserve(el); }
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px', ...options });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return [ref, isVisible];
+}
+
+function useCountUp(target, isVisible, duration = 1800) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!isVisible) return;
+    let start = 0;
+    const step = Math.ceil(target / (duration / 16));
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      setCount(start);
+    }, 16);
+    return () => clearInterval(timer);
+  }, [isVisible, target]);
+  return count;
+}
+
+function useScrollProgress() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return progress;
+}
+
+// ============ SVG ICONS ============
+const Icons = {
+  shield: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+  check: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>,
+  checkCircle: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>,
+  users: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  doc: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>,
+  shieldFill: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+  briefcase: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>,
+  building: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>,
+  clock: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>,
+  layers: <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0f1b2d" strokeWidth="2"><path d="M12 3L1 9l11 6 11-6-11-6z"/><path d="M1 9v6l11 6 11-6V9"/></svg>,
+  book: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
+  heart: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+  info: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>,
+  pin: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+  mail: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>,
+  globe: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+  arrowUp: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 15l-6-6-6 6"/></svg>,
+  arrowRight: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>,
+  eye: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>,
+  vCheck: <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>,
+  vInfo: <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>,
+  successCheck: <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>,
+};
+
+const svcIcons = [Icons.doc, Icons.shieldFill, Icons.briefcase, Icons.building, Icons.clock];
+const svcColors = ['#eef2ff','#fef3c7','#ecfdf5','#fce7f3','#f0f9ff'];
+const svcStrokes = ['#4f46e5','#d97706','#059669','#db2777','#0284c7'];
+const csrIcons = [Icons.book, Icons.heart, Icons.users, Icons.info];
+const csrColors = ['#dbeafe','#fce7f3','#ecfdf5','#fef3c7'];
+const csrStrokes = ['#2563eb','#db2777','#059669','#d97706'];
+
+// ============ ANIMATED ITEM COMPONENT ============
+function AnimatedItem({ children, className = '', delay = 0, as = 'div' }) {
+  const [ref, visible] = useInView();
+  const Tag = as;
+  return (
+    <Tag ref={ref} className={`stagger-item${visible ? ' visible' : ''} ${className}`} style={{ transitionDelay: visible ? `${delay * 0.1}s` : '0s' }}>
+      {children}
+    </Tag>
+  );
+}
+
+// ============ NAVIGATION ============
+function Navigation() {
+  const { lang, setLang } = useLang();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      const sections = document.querySelectorAll('section[id]');
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      setActiveSection(current);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const links = [
+    { id: 'about', label: t(translations.nav.about, lang) },
+    { id: 'services', label: t(translations.nav.services, lang) },
+    { id: 'advantage', label: t(translations.nav.whyUs, lang) },
+    { id: 'team', label: t(translations.nav.team, lang) },
+    { id: 'contact', label: t(translations.nav.contact, lang) },
+  ];
+
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileOpen(false);
+  };
+
+  return (
+    <>
+      <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
+        <div className="nav-inner">
+          <a href="#hero" className="nav-logo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+            <div className="nav-logo-icon"><img src="images/logo.jpg" alt="IBP & Dirman Logo"/></div>
+            <span>IBP & Dirman</span>
+          </a>
+          <div className="nav-links">
+            {links.map(l => (
+              <a key={l.id} href={`#${l.id}`} className={`nav-link-item${activeSection === l.id ? ' active' : ''}`}
+                onClick={(e) => { e.preventDefault(); scrollTo(l.id); }}>{l.label}</a>
+            ))}
+          </div>
+          <div className="nav-actions">
+            <div className="lang-switch">
+              <button className={`lang-btn${lang === 'id' ? ' active' : ''}`} onClick={() => setLang('id')}>ID</button>
+              <button className={`lang-btn${lang === 'en' ? ' active' : ''}`} onClick={() => setLang('en')}>EN</button>
+            </div>
+            <a href="#contact" className="nav-cta-btn" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>
+              {t(translations.nav.cta, lang)}
+            </a>
+          </div>
+          <button className={`hamburger${mobileOpen ? ' open' : ''}`} onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+            <span/><span/><span/>
+          </button>
+        </div>
+      </nav>
+      <div className={`mobile-overlay${mobileOpen ? ' open' : ''}`} onClick={() => setMobileOpen(false)}/>
+      <div className={`mobile-panel${mobileOpen ? ' open' : ''}`}>
+        {links.map(l => (
+          <a key={l.id} href={`#${l.id}`} className="mobile-link" onClick={(e) => { e.preventDefault(); scrollTo(l.id); }}>{l.label}</a>
+        ))}
+        <div className="lang-switch" style={{ marginTop: 16, alignSelf: 'flex-start' }}>
+          <button className={`lang-btn${lang === 'id' ? ' active' : ''}`} onClick={() => setLang('id')}>ID</button>
+          <button className={`lang-btn${lang === 'en' ? ' active' : ''}`} onClick={() => setLang('en')}>EN</button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ============ HERO ============
+function Hero() {
+  const { lang } = useLang();
+  const h = translations.hero;
+  return (
+    <section className="hero" id="hero">
+      <div className="hero-bg-image"><img src="images/hero-bg.jpg" alt=""/></div>
+      <div className="hero-bg-orb hero-bg-orb-1"/>
+      <div className="hero-bg-orb hero-bg-orb-2"/>
+      <div className="hero-grid-pattern"/>
+      <div className="particle" style={{ width: 6, height: 6, top: '20%', left: '15%', animationDelay: '0s', animationDuration: '7s' }}/>
+      <div className="particle" style={{ width: 4, height: 4, top: '60%', left: '80%', animationDelay: '2s', animationDuration: '9s' }}/>
+      <div className="particle" style={{ width: 8, height: 8, top: '75%', left: '25%', animationDelay: '1s', animationDuration: '6s' }}/>
+      <div className="hero-inner">
+        <div className="hero-content">
+          <div className="hero-badge">
+            <span className="hero-badge-dot"/>
+            <span>{t(h.badge, lang)}</span>
+          </div>
+          <h1>
+            {t(h.h1a, lang)}<br/>
+            <span className="gold">{t(h.h1b, lang)}</span>
+          </h1>
+          <p className="hero-desc">{t(h.desc, lang)}</p>
+          <div className="hero-btns">
+            <a href="#contact" className="btn-gold" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              {t(h.btn1, lang)} {Icons.arrowRight}
+            </a>
+            <a href="#services" className="btn-ghost" onClick={(e) => { e.preventDefault(); document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              {t(h.btn2, lang)}
+            </a>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="hero-card-main">
+            <div className="hero-card-glow"/>
+            <div className="hero-icon-box">{Icons.layers}</div>
+            <h3>{t(h.cardTitle, lang)}</h3>
+            <p>{t(h.cardDesc, lang)}</p>
+            <div className="hero-mini-stats">
+              <div className="hero-mini-stat">
+                <div className="hero-mini-stat-num">345+</div>
+                <div className="hero-mini-stat-label">{t(h.stat1, lang)}</div>
+              </div>
+              <div className="hero-mini-stat">
+                <div className="hero-mini-stat-num">675+</div>
+                <div className="hero-mini-stat-label">{t(h.stat2, lang)}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ ABOUT ============
+function About() {
+  const { lang } = useLang();
+  const a = translations.about;
+  const feats = [
+    { icon: Icons.shield, label: t(a.feat1, lang), cls: 'teal' },
+    { icon: Icons.check, label: t(a.feat2, lang), cls: 'gold' },
+    { icon: Icons.checkCircle, label: t(a.feat3, lang), cls: 'navy' },
+    { icon: Icons.users, label: t(a.feat4, lang), cls: 'teal' },
+  ];
+  return (
+    <section className="section about" id="about">
+      <div className="container">
+        <div className="about-grid">
+          <AnimatedItem className="about-img-area">
+            <div className="about-img-box">
+              <img src="images/about-bg.jpg" alt="IBP & Dirman Advocate's Office"/>
+            </div>
+            <div className="about-float-card">
+              <div className="about-float-card-num">10+</div>
+              <div className="about-float-card-text">{t(a.floatLabel, lang)}</div>
+            </div>
+          </AnimatedItem>
+          <div>
+            <AnimatedItem delay={1}>
+              <span className="section-label">{t(a.label, lang)}</span>
+              <h2 className="section-title">{t(a.title, lang)}</h2>
+            </AnimatedItem>
+            <AnimatedItem delay={2}>
+              <p style={{ color: 'var(--g600)', marginBottom: 14, lineHeight: 1.8 }}>{t(a.p1, lang)}</p>
+              <p style={{ color: 'var(--g600)', lineHeight: 1.8 }}>{t(a.p2, lang)}</p>
+            </AnimatedItem>
+            <div className="about-features">
+              {feats.map((f, i) => (
+                <AnimatedItem key={i} delay={3 + i} className="about-feat">
+                  <div className={`about-feat-icon ${f.cls}`}>{f.icon}</div>
+                  <span className="about-feat-text">{f.label}</span>
+                </AnimatedItem>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ VISION MISSION ============
+function VisionMission() {
+  const { lang } = useLang();
+  const v = translations.vm;
+  return (
+    <section className="section vm-section" id="vision">
+      <div className="vm-bg-image"><img src="images/vision.jpg" alt=""/></div>
+      <div className="container" style={{ textAlign: 'center' }}>
+        <AnimatedItem>
+          <span className="section-label" style={{ paddingLeft: 0 }}>{t(v.label, lang)}</span>
+          <h2 className="section-title" style={{ margin: '0 auto 16px' }}>{t(v.title, lang)}</h2>
+        </AnimatedItem>
+        <div className="vm-grid">
+          <AnimatedItem className="vm-card visi" delay={1}>
+            <div className="vm-card-icon">{Icons.vInfo}</div>
+            <h3>{t(v.visi, lang)}</h3>
+            <p>{t(v.visiText, lang)}</p>
+          </AnimatedItem>
+          <AnimatedItem className="vm-card misi" delay={2}>
+            <div className="vm-card-icon">{Icons.vCheck}</div>
+            <h3>{t(v.misi, lang)}</h3>
+            <p>{t(v.misiText, lang)}</p>
+          </AnimatedItem>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ SERVICES ============
+function Services() {
+  const { lang } = useLang();
+  const s = translations.svc;
+  const [hovered, setHovered] = useState(null);
+  return (
+    <section className="section services" id="services">
+      <div className="container">
+        <AnimatedItem>
+          <span className="section-label">{t(s.label, lang)}</span>
+          <h2 className="section-title">{t(s.title, lang)}</h2>
+          <p className="section-desc">{t(s.desc, lang)}</p>
+        </AnimatedItem>
+        <div className="services-grid">
+          {s.items.map((item, i) => (
+            <AnimatedItem key={i} delay={i + 1} className="svc-card"
+              onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}>
+              <div className="svc-num">KEY #{String(i + 1).padStart(2, '0')}</div>
+              <div className="svc-icon" style={{ background: svcColors[i], color: svcStrokes[i] }}>
+                {React.cloneElement(svcIcons[i], { stroke: svcStrokes[i] })}
+              </div>
+              <h3>{t(item.name, lang)}</h3>
+              <p>{t(item.desc, lang)}</p>
+              <span className="svc-tag">{t(s.tag, lang)}</span>
+            </AnimatedItem>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ STATS ============
+function StatCard({ target, label, desc, delay }) {
+  const [ref, visible] = useInView();
+  const count = useCountUp(target, visible);
+  return (
+    <div ref={ref} className="stat-item stagger-item" style={{
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.97)',
+      transition: `all 0.6s var(--ease)`,
+      transitionDelay: visible ? `${delay * 0.15}s` : '0s',
+    }}>
+      <div className="stat-num">{count}<span className="suffix">+</span></div>
+      <div className="stat-label">{label}</div>
+      <div className="stat-divider"/>
+      <div className="stat-desc">{desc}</div>
+    </div>
+  );
+}
+
+function Stats() {
+  const { lang } = useLang();
+  return (
+    <section className="stats-section" id="stats">
+      <div className="container">
+        <div className="stats-grid">
+          {translations.stats.items.map((item, i) => (
+            <StatCard key={i} target={item.num} label={t(item.label, lang)} desc={t(item.desc, lang)} delay={i}/>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ ADVANTAGE ============
+function Advantage() {
+  const { lang } = useLang();
+  const a = translations.adv;
+  return (
+    <section className="section advantage" id="advantage">
+      <div className="adv-bg-image"><img src="images/advantage-bg.jpg" alt=""/></div>
+      <div className="container">
+        <AnimatedItem>
+          <span className="section-label">{t(a.label, lang)}</span>
+          <h2 className="section-title">{t(a.title, lang)}</h2>
+          <p className="adv-quote">{t(a.quote, lang)}</p>
+        </AnimatedItem>
+        <div className="adv-grid">
+          {a.items.map((item, i) => (
+            <AnimatedItem key={i} delay={i + 1} className="adv-card">
+              <div className="adv-num">{String(i + 1).padStart(2, '0')}</div>
+              <h3>{t(item.name, lang)}</h3>
+              <p>{t(item.desc, lang)}</p>
+            </AnimatedItem>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ CSR ============
+function CSR() {
+  const { lang } = useLang();
+  const c = translations.csr;
+  return (
+    <section className="section csr" id="csr">
+      <div className="container">
+        <AnimatedItem>
+          <span className="section-label">{t(c.label, lang)}</span>
+          <h2 className="section-title">{t(c.title, lang)}</h2>
+          <p className="adv-quote">{t(c.quote, lang)}</p>
+        </AnimatedItem>
+        <div className="csr-grid">
+          {c.items.map((item, i) => (
+            <AnimatedItem key={i} delay={i + 1} className="csr-card">
+              <div className="csr-icon" style={{ background: csrColors[i], color: csrStrokes[i] }}>
+                {React.cloneElement(csrIcons[i], { stroke: csrStrokes[i] })}
+              </div>
+              <div>
+                <h3>{t(item.name, lang)}</h3>
+                <p>{t(item.desc, lang)}</p>
+              </div>
+            </AnimatedItem>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ TEAM ============
+function TeamCard({ name, role, initials, bg, delay, photo }) {
+  return (
+    <AnimatedItem delay={delay} className="team-card">
+      {photo ? (
+        <div className="team-avatar">
+          <img src={photo} alt={name}/>
+        </div>
+      ) : (
+        <div className="team-avatar initials" style={{ background: bg }}>{initials}</div>
+      )}
+      <h4>{name}</h4>
+      <p className="team-role">{role}</p>
+    </AnimatedItem>
+  );
+}
+
+function Team() {
+  const { lang } = useLang();
+  const tm = translations.team;
+  const partners = [
+    { name: 'Dirar Mahdirman Refra', initials: 'DM', bg: 'var(--navy)', photo: 'images/team-dirar.jpg' },
+    { name: 'Innayati Azzamir', initials: 'IA', bg: 'var(--teal)', photo: 'images/team-innayati.jpg' },
+    { name: 'Nur Azizah Zuhriyah', initials: 'NA', bg: 'var(--navy)', photo: 'images/team-nurazizah.jpg' },
+  ];
+  const associates = [
+    { name: 'Dr. Aripin, S.H., M.H., MM., PhD.', initials: 'DA', bg: 'var(--teal)', photo: 'images/team-aripin.jpg' },
+    { name: 'R. Amin Somar, S.H.', initials: 'RA', bg: 'var(--navy)', photo: 'images/team-amin.jpg' },
+    { name: 'Paulus Subandi, S.H., M.H., CLA., CIL.', initials: 'PS', bg: 'var(--teal)', photo: 'images/team-paulus.jpg' },
+    { name: 'M. Soleh, S.H., M.H.', initials: 'MS', bg: 'var(--navy)', photo: 'images/team-soleh.jpg' },
+    { name: 'Al Musradin Adha, S.H., M.H.', initials: 'AM', bg: 'var(--teal)', photo: 'images/team-musradin.jpg' },
+  ];
+  return (
+    <section className="section team" id="team">
+      <div className="container">
+        <AnimatedItem>
+          <span className="section-label">{t(tm.label, lang)}</span>
+          <h2 className="section-title">{t(tm.title, lang)}</h2>
+          <p className="section-desc" style={{ marginBottom: 48 }}>{t(tm.desc, lang)}</p>
+        </AnimatedItem>
+        <div className="team-sec-label">{t(tm.pembina, lang)}</div>
+        <div className="team-grid" style={{ maxWidth: 240 }}>
+          <TeamCard name="Brigjen Pol. Iksantyo Bagus Pramono" role={t(tm.pembina, lang)} initials="IB" bg="var(--gold)" delay={0} photo="images/team-pembina.jpg"/>
+        </div>
+        <div className="team-sec-label">{t(tm.cmp, lang)}</div>
+        <div className="team-grid">
+          {partners.map((p, i) => (
+            <TeamCard key={i} name={p.name} role="Co-Managing Partner" initials={p.initials} bg={p.bg} delay={i} photo={p.photo}/>
+          ))}
+        </div>
+        <div className="team-sec-label">{t(tm.assoc, lang)}</div>
+        <div className="team-grid">
+          {associates.map((a, i) => (
+            <TeamCard key={i} name={a.name} role="Associate" initials={a.initials} bg={a.bg} delay={i} photo={a.photo}/>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ CONTACT ============
+function Contact() {
+  const { lang } = useLang();
+  const c = translations.contact;
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', message: '' }); }, 4000);
+  };
+
+  return (
+    <section className="section contact" id="contact">
+      <div className="container">
+        <div className="contact-grid">
+          <div>
+            <AnimatedItem>
+              <span className="section-label">{t(c.label, lang)}</span>
+              <h2 className="section-title">{t(c.title, lang)}</h2>
+              <p className="section-desc">{t(c.desc, lang)}</p>
+            </AnimatedItem>
+            <div className="contact-list">
+              <AnimatedItem delay={1} className="contact-item">
+                <div className="contact-item-icon">{Icons.pin}</div>
+                <div>
+                  <h4>{t(c.address, lang)}</h4>
+                  <p>Jakarta, Indonesia</p>
+                </div>
+              </AnimatedItem>
+              <AnimatedItem delay={2} className="contact-item">
+                <div className="contact-item-icon">{Icons.mail}</div>
+                <div>
+                  <h4>Email</h4>
+                  <p>ibpd@mail.com</p>
+                </div>
+              </AnimatedItem>
+              <AnimatedItem delay={3} className="contact-item">
+                <div className="contact-item-icon">{Icons.globe}</div>
+                <div>
+                  <h4>Website</h4>
+                  <p>www.ibpd-advocates.id</p>
+                </div>
+              </AnimatedItem>
+            </div>
+          </div>
+          <AnimatedItem delay={1} className="contact-form-box">
+            {submitted ? (
+              <div className="form-success" style={{ animation: 'scaleIn 0.4s ease' }}>
+                {Icons.successCheck}
+                <h3 style={{ marginTop: 16 }}>{t(c.success, lang)}</h3>
+                <p>{t(c.successDesc, lang)}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <h3>{t(c.formTitle, lang)}</h3>
+                <div className="form-grp">
+                  <label className="form-lbl">{t(c.name, lang)}</label>
+                  <input type="text" className="form-inp" required value={formData.name}
+                    onChange={e => setFormData({...formData, name: e.target.value})}/>
+                </div>
+                <div className="form-grp">
+                  <label className="form-lbl">Email</label>
+                  <input type="email" className="form-inp" required value={formData.email}
+                    onChange={e => setFormData({...formData, email: e.target.value})}/>
+                </div>
+                <div className="form-grp">
+                  <label className="form-lbl">{t(c.phone, lang)}</label>
+                  <input type="tel" className="form-inp" value={formData.phone}
+                    onChange={e => setFormData({...formData, phone: e.target.value})}/>
+                </div>
+                <div className="form-grp">
+                  <label className="form-lbl">{t(c.message, lang)}</label>
+                  <textarea className="form-inp" required value={formData.message}
+                    onChange={e => setFormData({...formData, message: e.target.value})}/>
+                </div>
+                <button type="submit" className="form-submit-btn">{t(c.send, lang)}</button>
+              </form>
+            )}
+          </AnimatedItem>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ FOOTER ============
+function Footer() {
+  const { lang } = useLang();
+  const f = translations.footer;
+  return (
+    <footer className="footer">
+      <div className="container footer-inner">
+        <p className="footer-text">&copy; 2026 IBP & Dirman Advocate's. {t(f.rights, lang)}</p>
+        <div className="footer-links">
+          <a href="#" className="footer-link">{t(f.privacy, lang)}</a>
+          <a href="#" className="footer-link">{t(f.terms, lang)}</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+// ============ BACK TO TOP ============
+function BackToTop() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return (
+    <button className={`btt${show ? ' show' : ''}`}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      {Icons.arrowUp}
+    </button>
+  );
+}
+
+// ============ APP ============
+function App() {
+  const [lang, setLang] = useState('id');
+  const progress = useScrollProgress();
+
+  return (
+    <LangContext.Provider value={{ lang, setLang }}>
+      <div className="scroll-progress" style={{ width: `${progress}%` }}/>
+      <Navigation/>
+      <Hero/>
+      <About/>
+      <VisionMission/>
+      <Services/>
+      <Stats/>
+      <Advantage/>
+      <CSR/>
+      <Team/>
+      <Contact/>
+      <Footer/>
+      <BackToTop/>
+    </LangContext.Provider>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

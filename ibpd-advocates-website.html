@@ -1,0 +1,2060 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBP & Dirman Advocate's | Law Firm</title>
+<meta name="description" content="IBP & Dirman Advocate's - Firma hukum futuristik dengan integritas, kualitas dan ketuntasan.">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0f1b2d;
+  --navy-light: #1a2a42;
+  --slate: #2d3748;
+  --gold: #c9a84c;
+  --gold-light: #e2c975;
+  --white: #ffffff;
+  --off-white: #f7f8fa;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --teal: #0d9488;
+  --teal-light: #14b8a6;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--gray-800);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul { list-style: none; }
+h1, h2, h3, h4 { line-height: 1.2; }
+
+/* ===== UTILITY ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 96px 0; }
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  max-width: 640px;
+  line-height: 1.7;
+}
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate { opacity: 0; }
+.animate.visible { animation: fadeInUp 0.7s ease forwards; }
+.animate-delay-1 { animation-delay: 0.15s !important; }
+.animate-delay-2 { animation-delay: 0.3s !important; }
+.animate-delay-3 { animation-delay: 0.45s !important; }
+.animate-delay-4 { animation-delay: 0.6s !important; }
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav.scrolled {
+  background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.3) 100%);
+  backdrop-filter: blur(20px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(20px) saturate(200%) brightness(1.05);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 4px 30px rgba(0,0,0,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(255,255,255,0.1);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+  transition: color 0.4s ease;
+}
+.nav.scrolled .nav-logo { color: var(--navy); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  transition: color 0.4s ease;
+  position: relative;
+}
+.nav-link:hover, .nav-link.active { color: #ffffff; }
+.nav.scrolled .nav-link { color: var(--gray-600); }
+.nav.scrolled .nav-link:hover, .nav.scrolled .nav-link.active { color: var(--navy); }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  transition: var(--transition);
+}
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+.nav-actions { display: flex; align-items: center; gap: 16px; }
+.lang-toggle {
+  display: flex;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.4s ease;
+}
+.nav.scrolled .lang-toggle { background: rgba(0,0,0,0.05); }
+.lang-btn {
+  padding: 6px 14px;
+  border-radius: 18px;
+  transition: all 0.4s ease;
+  color: rgba(255,255,255,0.7);
+}
+.nav.scrolled .lang-btn { color: var(--gray-500); }
+.lang-btn.active {
+  background: rgba(255,255,255,0.25);
+  color: #ffffff;
+  box-shadow: none;
+}
+.nav.scrolled .lang-btn.active {
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: var(--shadow-sm);
+}
+.nav-cta {
+  padding: 10px 24px;
+  background: rgba(255,255,255,0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+.nav-cta:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); }
+.nav.scrolled .nav-cta { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.nav.scrolled .nav-cta:hover { background: var(--navy-light); box-shadow: var(--shadow); }
+
+/* Mobile menu */
+.hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+.hamburger span {
+  width: 24px; height: 2px; background: #ffffff;
+  transition: all 0.4s ease; border-radius: 2px;
+}
+.nav.scrolled .hamburger span { background: var(--navy); }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--white);
+  padding: 32px 24px;
+  z-index: 999;
+  flex-direction: column;
+  gap: 8px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu .nav-link {
+  font-size: 1.1rem;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+.mobile-menu .nav-link::after { display: none; }
+
+/* ===== TEXT CYCLE ANIMATION ===== */
+.text-cycle-wrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  overflow: hidden;
+  height: 1.2em;
+  transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.text-cycle-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-100%);
+  filter: blur(8px);
+  transition: all 0.4s ease-out;
+}
+.text-cycle-item.active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.text-cycle-item.exit {
+  opacity: 0;
+  transform: translateY(100%);
+  filter: blur(8px);
+  transition: all 0.3s ease-in;
+}
+
+/* ===== HERO (Digital Serenity style) ===== */
+@keyframes word-appear {
+  0% { opacity: 0; transform: translateY(30px) scale(0.8); filter: blur(10px); }
+  50% { opacity: 0.8; transform: translateY(10px) scale(0.95); filter: blur(2px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes grid-draw {
+  0% { stroke-dashoffset: 1000; opacity: 0; }
+  50% { opacity: 0.3; }
+  100% { stroke-dashoffset: 0; opacity: 0.15; }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+}
+@keyframes underline-grow { to { width: 100%; } }
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+  25% { transform: translateY(-10px) translateX(5px); opacity: 0.6; }
+  50% { transform: translateY(-5px) translateX(-3px); opacity: 0.4; }
+  75% { transform: translateY(-15px) translateX(7px); opacity: 0.8; }
+}
+.word-animate {
+  display: inline-block;
+  opacity: 0;
+  margin: 0 0.1em;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+.word-animate:hover {
+  color: #cbd5e1;
+  transform: translateY(-2px);
+  text-shadow: 0 0 20px rgba(203, 213, 225, 0.5);
+}
+.hero-grid-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.grid-line {
+  stroke: #94a3b8;
+  stroke-width: 0.5;
+  opacity: 0;
+  stroke-dasharray: 5 5;
+  stroke-dashoffset: 1000;
+  animation: grid-draw 2s ease-out forwards;
+}
+.detail-dot { fill: #cbd5e1; opacity: 0; animation: pulse-glow 3s ease-in-out infinite; }
+.hero-floating {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #cbd5e1;
+  border-radius: 50%;
+  opacity: 0;
+  animation: float-particle 4s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.hero-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(203, 213, 225, 0.2);
+  opacity: 0;
+  animation: word-appear 1s ease-out forwards;
+}
+.hero-corner-dot {
+  width: 2px;
+  height: 2px;
+  background: #cbd5e1;
+  opacity: 0.3;
+  border-radius: 50%;
+}
+#mouse-gradient {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(156,163,175,0.05), rgba(107,114,128,0.05), transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: blur(40px);
+  will-change: left, top, opacity;
+  transition: left 70ms linear, top 70ms linear, opacity 300ms ease-out;
+  z-index: 0;
+  opacity: 0;
+}
+.ripple-effect {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: rgba(203, 213, 225, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: pulse-glow 1s ease-out forwards;
+  z-index: 9999;
+}
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: url('images/background_r.png') center center / cover no-repeat;
+  overflow: hidden;
+  padding: 72px 24px 40px;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,15,26,0.82) 0%, rgba(13,17,23,0.75) 30%, rgba(17,24,39,0.7) 60%, rgba(15,23,42,0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hero-top-text {
+  font-size: 0.75rem;
+  font-family: monospace;
+  font-weight: 300;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+.hero-top-line {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.4;
+  margin: 16px auto;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: #f8fafc;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.hero h1 .hero-static {
+  font-weight: 300;
+  color: #f8fafc;
+}
+.hero h1 .text-cycle-wrapper {
+  color: #f8fafc;
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 200;
+  color: #94a3b8;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero-desc {
+  font-size: 1rem;
+  color: rgba(148,163,184,0.8);
+  max-width: 600px;
+  margin: 24px auto 36px;
+  line-height: 1.7;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn-primary {
+  padding: 14px 32px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+.btn-outline {
+  padding: 14px 32px;
+  border: 1.5px solid rgba(203,213,225,0.3);
+  color: #cbd5e1;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.btn-outline:hover { border-color: #cbd5e1; background: rgba(255,255,255,0.05); }
+/* Glassmorphism stat cards */
+.hero-glass-stats {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 860px;
+  margin: 48px auto 0;
+  width: 100%;
+}
+.glass-card {
+  padding: 32px 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.glass-card--gold {
+  background: rgba(201,168,76,0.25);
+  border-color: rgba(201,168,76,0.3);
+}
+.glass-card--white {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+}
+.glass-card-num {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.glass-card-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.glass-card-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .hero-glass-stats { grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+  .glass-card { padding: 24px 20px; }
+}
+
+.hero-bottom-text {
+  font-size: 0.75rem;
+  font-family: monospace;
+  font-weight: 600;
+  color: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+  margin-top: 48px;
+}
+.hero-bottom-dots {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.hero-bottom-dots span {
+  width: 4px;
+  height: 4px;
+  background: #cbd5e1;
+  border-radius: 50%;
+}
+.hero-bottom-dots span:nth-child(1) { opacity: 0.4; }
+.hero-bottom-dots span:nth-child(2) { opacity: 0.6; }
+.hero-bottom-dots span:nth-child(3) { opacity: 0.4; }
+
+/* ===== ABOUT ===== */
+.about { background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('images/background_r.png') center/cover no-repeat fixed; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.about-image {
+  width: 100%;
+  height: 420px;
+  background: url('images/about-bg.jpg') center/cover no-repeat;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.about-image-text {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: 0;
+  letter-spacing: 0.1em;
+}
+.about-accent {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  width: 120px;
+  height: 120px;
+  background: var(--teal);
+  border-radius: var(--radius-lg);
+  opacity: 0.1;
+}
+.about-text h2 { margin-bottom: 20px; }
+.about-text p { margin-bottom: 16px; color: var(--gray-600); line-height: 1.8; }
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+.about-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.about-feature:hover {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.about-feature-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+  font-size: 0.9rem;
+}
+.about-feature-text { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+
+/* ===== FEATURE CARD (shared style) ===== */
+.feat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 380px;
+  border-radius: 16px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  padding: 24px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease;
+  cursor: default;
+}
+.feat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+.feat-card-gradient {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+.feat-card-index {
+  display: none;
+}
+.feat-card-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.feat-card:hover .feat-card-icon {
+  transform: scale(1.3) translateY(-20px);
+}
+.feat-card-icon svg {
+  width: 80px;
+  height: 80px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.feat-card:hover .feat-card-icon svg {
+  opacity: 0.9;
+}
+.feat-card-content {
+  position: relative;
+  z-index: 10;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 16px;
+}
+.feat-card-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.feat-card-content h3 {
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.feat-card-content p {
+  font-size: 0.82rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* Color variants */
+.feat-card[data-color="navy"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(15,27,45,0.2), transparent 70%); }
+.feat-card[data-color="navy"] .feat-card-tag { background: rgba(15,27,45,0.08); color: var(--navy); }
+.feat-card[data-color="teal"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(13,148,136,0.2), transparent 70%); }
+.feat-card[data-color="teal"] .feat-card-tag { background: rgba(13,148,136,0.08); color: var(--teal); }
+.feat-card[data-color="gold"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(201,168,76,0.25), transparent 70%); }
+.feat-card[data-color="gold"] .feat-card-tag { background: rgba(201,168,76,0.12); color: #92750e; }
+.feat-card[data-color="indigo"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(79,70,229,0.18), transparent 70%); }
+.feat-card[data-color="indigo"] .feat-card-tag { background: rgba(79,70,229,0.08); color: #4f46e5; }
+.feat-card[data-color="rose"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(219,39,119,0.15), transparent 70%); }
+.feat-card[data-color="rose"] .feat-card-tag { background: rgba(219,39,119,0.08); color: #db2777; }
+.feat-card[data-color="sky"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(2,132,199,0.18), transparent 70%); }
+.feat-card[data-color="sky"] .feat-card-tag { background: rgba(2,132,199,0.08); color: #0284c7; }
+.feat-card[data-color="emerald"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(5,150,105,0.18), transparent 70%); }
+.feat-card[data-color="emerald"] .feat-card-tag { background: rgba(5,150,105,0.08); color: #059669; }
+.feat-card[data-color="amber"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(217,119,6,0.2), transparent 70%); }
+.feat-card[data-color="amber"] .feat-card-tag { background: rgba(217,119,6,0.08); color: #d97706; }
+.feat-card[data-color="blue"] .feat-card-gradient { background: radial-gradient(circle at 50% 30%, rgba(37,99,235,0.18), transparent 70%); }
+.feat-card[data-color="blue"] .feat-card-tag { background: rgba(37,99,235,0.08); color: #2563eb; }
+
+/* ===== VISION MISSION ===== */
+.vision-mission { background: linear-gradient(rgba(247,248,250,0.90), rgba(247,248,250,0.90)), url('images/background_r.png') center/cover no-repeat fixed; }
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+/* ===== SERVICES ===== */
+.services { background: linear-gradient(rgba(255,255,255,0.93), rgba(255,255,255,0.93)), url('images/background_r.png') center/cover no-repeat fixed; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* ===== STATS ===== */
+.stats {
+  background: linear-gradient(rgba(247,248,250,0.88), rgba(247,248,250,0.88)), url('images/background_r.png') center/cover no-repeat fixed;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+.stat-card {
+  text-align: center;
+  padding: 32px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+}
+.stat-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.stat-num {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-suffix { font-size: 0.7em; }
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--gray-700);
+  font-weight: 600;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.stat-desc {
+  font-size: 0.82rem;
+  color: var(--gray-500);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ===== COMPETITIVE ADVANTAGE ===== */
+.advantage { background: linear-gradient(rgba(255,255,255,0.91), rgba(255,255,255,0.91)), url('images/background_r.png') center/cover no-repeat fixed; }
+.advantage-quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--gray-600);
+  margin-top: 8px;
+  margin-bottom: 48px;
+  max-width: 640px;
+}
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* ===== CSR ===== */
+.csr { background: linear-gradient(rgba(247,248,250,0.90), rgba(247,248,250,0.90)), url('images/background_r.png') center/cover no-repeat fixed; }
+.csr-quote {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--gray-600);
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+.csr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* ===== TEAM (Showcase Style) ===== */
+.team { background: linear-gradient(rgba(255,255,255,0.93), rgba(255,255,255,0.93)), url('images/background_r.png') center/cover no-repeat fixed; }
+.team-subtitle { margin-bottom: 48px; }
+.team-showcase {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 56px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+/* Photo grid */
+.team-photo-grid {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.team-photo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.team-photo-col:nth-child(2) { margin-top: 68px; }
+.team-photo-col:nth-child(3) { margin-top: 32px; }
+.team-photo-card {
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+.team-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.77);
+  transition: filter 0.5s ease;
+}
+.team-photo-card.active img {
+  filter: grayscale(0) brightness(1);
+}
+.team-photo-card.dimmed { opacity: 0.55; }
+/* Photo sizes per column */
+.team-photo-col:nth-child(1) .team-photo-card { width: 155px; height: 165px; }
+.team-photo-col:nth-child(2) .team-photo-card { width: 172px; height: 182px; }
+.team-photo-col:nth-child(3) .team-photo-card { width: 162px; height: 172px; }
+/* Name list */
+.team-name-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  padding-top: 8px;
+}
+.team-member-row {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.team-member-row.dimmed { opacity: 0.45; }
+.team-member-row .member-name-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.team-member-row .member-indicator {
+  width: 16px;
+  height: 12px;
+  border-radius: 5px;
+  background: var(--gray-300);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.team-member-row.active .member-indicator {
+  background: var(--navy);
+  width: 20px;
+}
+.team-member-row .member-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  transition: color 0.3s ease;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.team-member-row.active .member-name { color: var(--navy); }
+.team-member-row .member-role {
+  margin-top: 6px;
+  padding-left: 27px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gray-500);
+}
+.team-member-row .member-social {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+.team-member-row.active .member-social {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.team-member-row .member-social a {
+  padding: 4px;
+  border-radius: 4px;
+  color: var(--gray-500);
+  transition: all 0.15s ease;
+  display: flex;
+}
+.team-member-row .member-social a:hover {
+  color: var(--navy);
+  background: rgba(15,27,45,0.08);
+  transform: scale(1.1);
+}
+/* Section labels within showcase */
+.team-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--gray-200);
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .team-showcase { flex-direction: column; gap: 32px; }
+  .team-photo-grid { overflow-x: auto; padding-bottom: 4px; }
+  .team-photo-col:nth-child(1) .team-photo-card { width: 120px; height: 130px; }
+  .team-photo-col:nth-child(2) .team-photo-card { width: 135px; height: 145px; }
+  .team-photo-col:nth-child(3) .team-photo-card { width: 128px; height: 138px; }
+  .team-photo-col:nth-child(2) { margin-top: 48px; }
+  .team-photo-col:nth-child(3) { margin-top: 22px; }
+  .team-name-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: linear-gradient(rgba(249,250,251,0.91), rgba(249,250,251,0.91)), url('images/background_r.png') center/cover no-repeat fixed;
+  position: relative;
+  overflow: hidden;
+}
+.contact .section-label { color: var(--teal); }
+.contact .section-title { color: var(--navy); }
+.contact .section-desc { color: var(--gray-600); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+.contact-info-list { display: flex; flex-direction: column; gap: 28px; margin-top: 24px; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.contact-item-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(15,27,45,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+.contact-item h4 {
+  font-size: 0.9rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.contact-item p {
+  font-size: 0.88rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+.contact-form {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+.form-group { margin-bottom: 20px; }
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  color: var(--gray-800);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(15,27,45,0.08);
+}
+.form-input::placeholder { color: var(--gray-300); }
+textarea.form-input { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.form-submit:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: var(--shadow); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--gray-900);
+  padding: 40px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-text {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-link {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  transition: var(--transition);
+}
+.footer-link:hover { color: var(--gold); }
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  background: var(--navy);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 100;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { background: var(--navy-light); transform: translateY(-2px); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-image-wrapper { order: -1; }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .vm-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+  .stat-card { padding: 20px; }
+  .advantage-grid { grid-template-columns: 1fr; }
+  .csr-grid { grid-template-columns: 1fr; }
+  .feat-card { height: 320px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .about-features { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .contact-form { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="images/logo.jpg" alt="IBP & Dirman Logo" style="width:36px;height:36px;border-radius:50%;object-fit:cover;">
+      <span>IBP & Dirman</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link" data-en="About" data-id-text="Tentang">About</a>
+      <a href="#team" class="nav-link" data-en="Team" data-id-text="Tim">Team</a>
+      <a href="#services" class="nav-link" data-en="Services" data-id-text="Layanan">Services</a>
+      <a href="#advantage" class="nav-link" data-en="Why Us" data-id-text="Keunggulan">Why Us</a>
+      <a href="#contact" class="nav-link" data-en="Contact" data-id-text="Kontak">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="langID" onclick="setLang('id')">ID</button>
+        <button class="lang-btn" id="langEN" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#contact" class="nav-cta" data-en="Get Consultation" data-id-text="Konsultasi">Konsultasi</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="nav-link" onclick="closeMenu()" data-en="About" data-id-text="Tentang">Tentang</a>
+  <a href="#team" class="nav-link" onclick="closeMenu()" data-en="Team" data-id-text="Tim">Tim</a>
+  <a href="#services" class="nav-link" onclick="closeMenu()" data-en="Services" data-id-text="Layanan">Layanan</a>
+  <a href="#advantage" class="nav-link" onclick="closeMenu()" data-en="Why Us" data-id-text="Keunggulan">Keunggulan</a>
+  <a href="#contact" class="nav-link" onclick="closeMenu()" data-en="Contact" data-id-text="Kontak">Kontak</a>
+  <div class="lang-toggle" style="margin-top:16px;">
+    <button class="lang-btn active" onclick="setLang('id')">ID</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <!-- SVG Law Firm Background -->
+  <svg class="hero-grid-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <!-- Subtle vertical stripe pattern (like suit pinstripes) -->
+      <pattern id="heroGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <line x1="20" y1="0" x2="20" y2="40" stroke="rgba(201,168,76,0.04)" stroke-width="0.5"/>
+        <line x1="0" y1="20" x2="40" y2="20" stroke="rgba(100,116,139,0.04)" stroke-width="0.3"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#heroGrid)"/>
+
+    <!-- Scales of Justice - centered, large, subtle -->
+    <g transform="translate(50%, 50%)" opacity="0" style="animation: grid-draw 3s ease-out 1s forwards;">
+      <!-- Center pillar -->
+      <line x1="50%" y1="30%" x2="50%" y2="70%" stroke="rgba(201,168,76,0.08)" stroke-width="1.5"/>
+      <!-- Top triangle -->
+      <polygon points="" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <!-- Left beam -->
+      <line x1="30%" y1="40%" x2="50%" y2="38%" stroke="rgba(201,168,76,0.07)" stroke-width="1" class="grid-line" style="animation-delay:1.5s"/>
+      <!-- Right beam -->
+      <line x1="50%" y1="38%" x2="70%" y2="40%" stroke="rgba(201,168,76,0.07)" stroke-width="1" class="grid-line" style="animation-delay:1.8s"/>
+      <!-- Left scale plate (arc) -->
+      <path d="M 25% 42% Q 30% 48% 35% 42%" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="0.8" class="grid-line" style="animation-delay:2s"/>
+      <!-- Right scale plate (arc) -->
+      <path d="M 65% 42% Q 70% 48% 75% 42%" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="0.8" class="grid-line" style="animation-delay:2.2s"/>
+      <!-- Left chains -->
+      <line x1="30%" y1="40%" x2="25%" y2="42%" stroke="rgba(201,168,76,0.05)" stroke-width="0.5" stroke-dasharray="2 3"/>
+      <line x1="30%" y1="40%" x2="35%" y2="42%" stroke="rgba(201,168,76,0.05)" stroke-width="0.5" stroke-dasharray="2 3"/>
+      <!-- Right chains -->
+      <line x1="70%" y1="40%" x2="65%" y2="42%" stroke="rgba(201,168,76,0.05)" stroke-width="0.5" stroke-dasharray="2 3"/>
+      <line x1="70%" y1="40%" x2="75%" y2="42%" stroke="rgba(201,168,76,0.05)" stroke-width="0.5" stroke-dasharray="2 3"/>
+    </g>
+
+    <!-- Classical columns - left side -->
+    <g opacity="0" style="animation: grid-draw 2.5s ease-out 2s forwards;">
+      <rect x="8%" y="55%" width="1.2%" height="30%" rx="1" fill="rgba(201,168,76,0.04)"/>
+      <rect x="7%" y="54%" width="3.5%" height="2%" rx="1" fill="rgba(201,168,76,0.03)"/>
+      <rect x="7%" y="85%" width="3.5%" height="2%" rx="1" fill="rgba(201,168,76,0.03)"/>
+    </g>
+    <g opacity="0" style="animation: grid-draw 2.5s ease-out 2.3s forwards;">
+      <rect x="13%" y="58%" width="1%" height="25%" rx="1" fill="rgba(201,168,76,0.03)"/>
+      <rect x="12%" y="57%" width="3%" height="1.5%" rx="1" fill="rgba(201,168,76,0.025)"/>
+      <rect x="12%" y="83%" width="3%" height="1.5%" rx="1" fill="rgba(201,168,76,0.025)"/>
+    </g>
+
+    <!-- Classical columns - right side -->
+    <g opacity="0" style="animation: grid-draw 2.5s ease-out 2.5s forwards;">
+      <rect x="90%" y="55%" width="1.2%" height="30%" rx="1" fill="rgba(201,168,76,0.04)"/>
+      <rect x="89%" y="54%" width="3.5%" height="2%" rx="1" fill="rgba(201,168,76,0.03)"/>
+      <rect x="89%" y="85%" width="3.5%" height="2%" rx="1" fill="rgba(201,168,76,0.03)"/>
+    </g>
+    <g opacity="0" style="animation: grid-draw 2.5s ease-out 2.8s forwards;">
+      <rect x="86%" y="58%" width="1%" height="25%" rx="1" fill="rgba(201,168,76,0.03)"/>
+      <rect x="85%" y="57%" width="3%" height="1.5%" rx="1" fill="rgba(201,168,76,0.025)"/>
+      <rect x="85%" y="83%" width="3%" height="1.5%" rx="1" fill="rgba(201,168,76,0.025)"/>
+    </g>
+
+    <!-- Gavel silhouette - top right area -->
+    <g opacity="0" style="animation: grid-draw 3s ease-out 3s forwards;">
+      <line x1="78%" y1="15%" x2="85%" y2="22%" stroke="rgba(201,168,76,0.05)" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="84%" y="20%" width="5%" height="2.5%" rx="1.5" transform="rotate(-45, 86%, 21%)" fill="rgba(201,168,76,0.04)"/>
+    </g>
+
+    <!-- Legal book stack - bottom left -->
+    <g opacity="0" style="animation: grid-draw 3s ease-out 3.3s forwards;">
+      <rect x="15%" y="82%" width="8%" height="1.5%" rx="0.5" fill="rgba(201,168,76,0.04)"/>
+      <rect x="14.5%" y="84%" width="9%" height="1.5%" rx="0.5" fill="rgba(201,168,76,0.035)"/>
+      <rect x="15.5%" y="86%" width="7%" height="1.5%" rx="0.5" fill="rgba(201,168,76,0.03)"/>
+    </g>
+
+    <!-- Decorative gold accent dots at intersections -->
+    <circle cx="50%" cy="35%" r="2" class="detail-dot" fill="rgba(201,168,76,0.15)" style="animation-delay:3s"/>
+    <circle cx="30%" cy="40%" r="1.5" class="detail-dot" fill="rgba(201,168,76,0.1)" style="animation-delay:3.2s"/>
+    <circle cx="70%" cy="40%" r="1.5" class="detail-dot" fill="rgba(201,168,76,0.1)" style="animation-delay:3.4s"/>
+    <circle cx="50%" cy="50%" r="1" class="detail-dot" fill="rgba(201,168,76,0.08)" style="animation-delay:3.6s"/>
+
+    <!-- Horizontal rule lines (like legal document lines) -->
+    <line x1="20%" y1="25%" x2="80%" y2="25%" stroke="rgba(201,168,76,0.04)" stroke-width="0.3" stroke-dasharray="8 12" class="grid-line" style="animation-delay:1s"/>
+    <line x1="25%" y1="75%" x2="75%" y2="75%" stroke="rgba(201,168,76,0.04)" stroke-width="0.3" stroke-dasharray="8 12" class="grid-line" style="animation-delay:1.3s"/>
+  </svg>
+
+  <!-- Corner Elements (gold-tinted) -->
+  <div class="hero-corner" style="top:24px;left:24px;animation-delay:4s;border-color:rgba(201,168,76,0.15)"><div class="hero-corner-dot" style="position:absolute;top:0;left:0;background:rgba(201,168,76,0.3)"></div></div>
+  <div class="hero-corner" style="top:24px;right:24px;animation-delay:4.2s;border-color:rgba(201,168,76,0.15)"><div class="hero-corner-dot" style="position:absolute;top:0;right:0;background:rgba(201,168,76,0.3)"></div></div>
+  <div class="hero-corner" style="bottom:24px;left:24px;animation-delay:4.4s;border-color:rgba(201,168,76,0.15)"><div class="hero-corner-dot" style="position:absolute;bottom:0;left:0;background:rgba(201,168,76,0.3)"></div></div>
+  <div class="hero-corner" style="bottom:24px;right:24px;animation-delay:4.6s;border-color:rgba(201,168,76,0.15)"><div class="hero-corner-dot" style="position:absolute;bottom:0;right:0;background:rgba(201,168,76,0.3)"></div></div>
+
+  <!-- Floating Particles (gold-tinted) -->
+  <div class="hero-floating" style="top:25%;left:15%;animation-delay:0.5s;background:rgba(201,168,76,0.6)"></div>
+  <div class="hero-floating" style="top:60%;left:85%;animation-delay:1s;background:rgba(201,168,76,0.5)"></div>
+  <div class="hero-floating" style="top:40%;left:10%;animation-delay:1.5s;background:#cbd5e1"></div>
+  <div class="hero-floating" style="top:75%;left:90%;animation-delay:2s;background:rgba(201,168,76,0.5)"></div>
+  <div class="hero-floating" style="top:20%;left:70%;animation-delay:2.5s;background:rgba(201,168,76,0.4)"></div>
+  <div class="hero-floating" style="top:80%;left:30%;animation-delay:3s;background:rgba(201,168,76,0.4)"></div>
+
+  <!-- Main Content -->
+  <div class="hero-content">
+    <div class="hero-top-text">
+      <span class="word-animate" data-delay="0" data-en="IBP" data-id-text="IBP">IBP</span>
+      <span class="word-animate" data-delay="200" data-en="&amp;" data-id-text="&amp;">&amp;</span>
+      <span class="word-animate" data-delay="400" data-en="Dirman" data-id-text="Dirman">Dirman</span>
+      <span class="word-animate" data-delay="600" data-en="Advocate's" data-id-text="Advocate's">Advocate's</span>
+    </div>
+    <div class="hero-top-line"></div>
+
+    <h1>
+      <span class="hero-static">
+        <span class="word-animate" data-delay="800" data-en="Trusted" data-id-text="Firma">Firma</span>
+        <span class="word-animate" data-delay="950" data-en="Law" data-id-text="Hukum">Hukum</span>
+        <span class="word-animate" data-delay="1100" data-en="Firm" data-id-text="Terpercaya">Terpercaya</span>
+        <span class="word-animate" data-delay="1250" data-en="With" data-id-text="Dengan">Dengan</span>
+      </span><br>
+      <span class="text-cycle-wrapper">
+        <span class="text-cycle-item active" data-en="Integrity" data-id-text="Integritas">Integritas</span>
+        <span class="text-cycle-item" data-en="Quality" data-id-text="Kualitas">Kualitas</span>
+        <span class="text-cycle-item" data-en="Completeness" data-id-text="Ketuntasan">Ketuntasan</span>
+      </span>
+    </h1>
+
+    <div class="hero-subtitle">
+      <span class="word-animate" data-delay="1600" data-en="providing" data-id-text="menjawab">menjawab</span>
+      <span class="word-animate" data-delay="1750" data-en="optimal" data-id-text="persoalan">persoalan</span>
+      <span class="word-animate" data-delay="1900" data-en="legal" data-id-text="hukum">hukum</span>
+      <span class="word-animate" data-delay="2050" data-en="services" data-id-text="dengan">dengan</span>
+      <span class="word-animate" data-delay="2200" data-en="across" data-id-text="integritas,">integritas,</span>
+      <span class="word-animate" data-delay="2350" data-en="all" data-id-text="kualitas">kualitas</span>
+      <span class="word-animate" data-delay="2500" data-en="sectors" data-id-text="dan">dan</span>
+      <span class="word-animate" data-delay="2650" data-en="with" data-id-text="ketuntasan.">ketuntasan.</span>
+    </div>
+
+    <div class="hero-buttons" style="opacity:0;animation:word-appear 1s ease-out forwards;animation-delay:3s">
+      <a href="#contact" class="btn-primary" data-en="Free Consultation &rarr;" data-id-text="Konsultasi Gratis &rarr;">Konsultasi Gratis &rarr;</a>
+      <a href="#services" class="btn-outline" data-en="Our Services" data-id-text="Layanan Kami">Layanan Kami</a>
+    </div>
+  </div>
+
+  <!-- Glassmorphism Stat Cards -->
+  <div class="hero-glass-stats" style="opacity:0;animation:word-appear 1s ease-out forwards;animation-delay:3.2s">
+    <div class="glass-card glass-card--gold">
+      <div class="glass-card-num" data-count="345">345<span style="font-size:0.7em">+</span></div>
+      <div class="glass-card-label" data-en="Collaboration" data-id-text="Colaborasi">Colaborasi</div>
+      <p class="glass-card-desc" data-en="IBP & Dirman Advocate's with a highly collaborative mission has partnered with various business partners sustainably." data-id-text="IBP & Dirman Advocate's dengan misi kolaboratif yang tinggi telah berkolaborasi dengan berbagai mitra bisnis secara berkelanjutan.">IBP & Dirman Advocate's dengan misi kolaboratif yang tinggi telah berkolaborasi dengan berbagai mitra bisnis secara berkelanjutan.</p>
+    </div>
+    <div class="glass-card glass-card--white">
+      <div class="glass-card-num" data-count="675">675<span style="font-size:0.7em">+</span></div>
+      <div class="glass-card-label" data-en="Legal Service Projects" data-id-text="Proyek Jasa Hukum">Proyek Jasa Hukum</div>
+      <p class="glass-card-desc" data-en="IBP & Dirman Advocate's has completed cross-sectoral legal services, including civil, criminal, corporate, constitutional, administrative, bankruptcy, industrial relations and intellectual property." data-id-text="IBP & Dirman Advocate's telah menyelesaikan jasa hukum lintas sektoral, baik perdata umum, pidana, corporate, tatanegara, administrasi negara, kepailitan, Hubungan Industrial dan Haki.">IBP & Dirman Advocate's telah menyelesaikan jasa hukum lintas sektoral, baik perdata umum, pidana, corporate, tatanegara, administrasi negara, kepailitan, Hubungan Industrial dan Haki.</p>
+    </div>
+  </div>
+
+  <div class="hero-bottom-text" style="opacity:0;animation:word-appear 1s ease-out forwards;animation-delay:3.5s">
+    <span class="word-animate" data-delay="3600" data-en="Justice." data-id-text="Keadilan.">Keadilan.</span>
+    <span class="word-animate" data-delay="3800" data-en="Certainty." data-id-text="Kepastian.">Kepastian.</span>
+    <span class="word-animate" data-delay="4000" data-en="Benefit." data-id-text="Kemanfaatan.">Kemanfaatan.</span>
+  </div>
+  <div class="hero-bottom-dots" style="opacity:0;animation:word-appear 1s ease-out forwards;animation-delay:4.5s">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- Mouse Gradient -->
+  <div id="mouse-gradient"></div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrapper animate">
+        <div class="about-image">
+          <div class="about-image-text">IBPD</div>
+        </div>
+        <div class="about-accent"></div>
+      </div>
+      <div class="about-text animate animate-delay-1">
+        <span class="section-label" data-en="About the Firm" data-id-text="Tentang Firma">Tentang Firma</span>
+        <h2 class="section-title" data-en="Futuristic Law Firm for Modern Legal Challenges" data-id-text="Firma Hukum Futuristik untuk Tantangan Hukum Modern">Firma Hukum Futuristik untuk Tantangan Hukum Modern</h2>
+        <p data-en="IBP &amp; Dirman Advocate's is a futuristic law firm committed to addressing legal issues with integrity, quality, and completeness, guided by prevailing laws and regulations while embodying the principles of justice, legal certainty, and legal benefit as its Philosophische Grondslag." data-id-text="IBP &amp; Dirman Advocate's adalah firma hukum futuristik yang hadir untuk menjawab persoalan hukum dengan integritas, kualitas dan tuntas, sesuai pedoman peraturan perundang-undangan serta menjiwai prinsip keadilan, kepastian dan kemanfaatan hukum sebagai Philosophische Grondslag.">IBP & Dirman Advocate's adalah firma hukum futuristik yang hadir untuk menjawab persoalan hukum dengan integritas, kualitas dan tuntas, sesuai pedoman peraturan perundang-undangan serta menjiwai prinsip keadilan, kepastian dan kemanfaatan hukum sebagai Philosophische Grondslag.</p>
+        <p data-en="We provide optimal services across all legal sectors, including Criminal Law, Civil Law, Corporate Law, Administrative Law, Constitutional Law, and Bankruptcy, as well as legal consulting in all areas." data-id-text="Kami memberikan pelayanan optimal pada semua sektor hukum: Pidana, Perdata, Korporasi, Tata Usaha Negara, Tatanegara, Kepailitan, serta konsultan hukum pada semua lingkup.">Kami memberikan pelayanan optimal pada semua sektor hukum: Pidana, Perdata, Korporasi, Tata Usaha Negara, Tatanegara, Kepailitan, serta konsultan hukum pada semua lingkup.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="about-feature-text" data-en="Integrity-Driven" data-id-text="Berbasis Integritas">Berbasis Integritas</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+            </div>
+            <span class="about-feature-text" data-en="Quality Service" data-id-text="Layanan Berkualitas">Layanan Berkualitas</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+            </div>
+            <span class="about-feature-text" data-en="Thorough Solutions" data-id-text="Penyelesaian Tuntas">Penyelesaian Tuntas</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="about-feature-text" data-en="Collaborative Network" data-id-text="Jaringan Kolaboratif">Jaringan Kolaboratif</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION & MISSION ===== -->
+<section class="section vision-mission" id="vision">
+  <div class="container text-center">
+    <span class="section-label" data-en="Vision &amp; Mission" data-id-text="Visi &amp; Misi">Visi & Misi</span>
+    <h2 class="section-title mx-auto" data-en="Our Guiding Principles" data-id-text="Prinsip Panduan Kami">Prinsip Panduan Kami</h2>
+    <div class="vm-grid">
+      <div class="feat-card animate" data-color="navy">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">001</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f1b2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 2c2.5 3.5 4 7.5 4 10s-1.5 6.5-4 10"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Vision" data-id-text="Visi">Visi</span>
+          <p data-en="To manifest law and law enforcement that is just, certain, and beneficial for all." data-id-text="Memanifestasikan hukum dan penegakan hukum yang berkeadilan, berkepastian dan bermanfaat.">Memanifestasikan hukum dan penegakan hukum yang berkeadilan, berkepastian dan bermanfaat.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-1" data-color="teal">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">002</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/><path d="M12 8v4l3 2"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Mission" data-id-text="Misi">Misi</span>
+          <p data-en="To provide legal services that are fair, certain, and beneficial to all client needs. To serve with integrity, quality, and completeness." data-id-text="Memberikan pelayanan hukum yang adil, pasti dan bermanfaat pada semua kebutuhan klien. Melayani dengan integritas, kualitas dan tuntas.">Memberikan pelayanan hukum yang adil, pasti dan bermanfaat pada semua kebutuhan klien. Melayani dengan integritas, kualitas dan tuntas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEAM (Showcase Style) ===== -->
+<section class="section team" id="team">
+  <div class="container">
+    <span class="section-label" data-en="Our Team" data-id-text="Tim Kami">Tim Kami</span>
+    <h2 class="section-title" data-en="Meet Our Legal Professionals" data-id-text="Profesional Hukum Kami">Profesional Hukum Kami</h2>
+    <p class="section-desc team-subtitle" data-en="A team of experienced legal professionals committed to delivering excellence." data-id-text="Tim profesional hukum berpengalaman yang berkomitmen memberikan layanan terbaik.">Tim profesional hukum berpengalaman yang berkomitmen memberikan layanan terbaik.</p>
+
+    <div class="team-showcase">
+      <!-- Photo Grid (3 columns, staggered) -->
+      <div class="team-photo-grid">
+        <!-- Column 1: members 0, 3, 6 -->
+        <div class="team-photo-col">
+          <div class="team-photo-card animate" data-member="pembina">
+            <img src="images/team-pembina.jpg" alt="Brigjen Pol. Iksantyo Bagus Pramono">
+          </div>
+          <div class="team-photo-card animate" data-member="nurazizah">
+            <img src="images/team-nurazizah.jpg" alt="Nur Azizah Zuhriyah">
+          </div>
+          <div class="team-photo-card animate" data-member="paulus">
+            <img src="images/team-paulus.jpg" alt="Paulus Subandi">
+          </div>
+        </div>
+        <!-- Column 2: members 1, 4, 7 -->
+        <div class="team-photo-col">
+          <div class="team-photo-card animate" data-member="dirar">
+            <img src="images/team-dirar.jpg" alt="Dirar Mahdirman Refra">
+          </div>
+          <div class="team-photo-card animate" data-member="aripin">
+            <img src="images/team-aripin.jpg" alt="Dr. Aripin">
+          </div>
+          <div class="team-photo-card animate" data-member="soleh">
+            <img src="images/team-soleh.jpg" alt="M. Soleh">
+          </div>
+        </div>
+        <!-- Column 3: members 2, 5, 8 -->
+        <div class="team-photo-col">
+          <div class="team-photo-card animate" data-member="innayati">
+            <img src="images/team-innayati.jpg" alt="Innayati Azzamir">
+          </div>
+          <div class="team-photo-card animate" data-member="amin">
+            <img src="images/team-amin.jpg" alt="R. Amin Somar">
+          </div>
+          <div class="team-photo-card animate" data-member="musradin">
+            <img src="images/team-musradin.jpg" alt="Al Musradin Adha">
+          </div>
+        </div>
+      </div>
+
+      <!-- Name List -->
+      <div class="team-name-list">
+        <div class="team-section-label" data-en="Principal Advisor" data-id-text="Pembina Utama">Pembina Utama</div>
+        <div class="team-member-row" data-member="pembina">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">Brigjen Pol. Iksantyo Bagus Pramono</span>
+          </div>
+          <p class="member-role" data-en="Principal Advisor" data-id-text="Pembina Utama">Pembina Utama</p>
+        </div>
+
+        <div class="team-section-label" data-en="Co-Managing Partners" data-id-text="Co-Managing Partners">Co-Managing Partners</div>
+        <div class="team-member-row" data-member="dirar">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">Dirar Mahdirman Refra</span>
+          </div>
+          <p class="member-role">Co-Managing Partner</p>
+        </div>
+        <div class="team-member-row" data-member="innayati">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">Innayati Azzamir</span>
+          </div>
+          <p class="member-role">Co-Managing Partner</p>
+        </div>
+        <div class="team-member-row" data-member="nurazizah">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">Nur Azizah Zuhriyah</span>
+          </div>
+          <p class="member-role">Co-Managing Partner</p>
+        </div>
+
+        <div class="team-section-label" data-en="Associates" data-id-text="Associates">Associates</div>
+        <div class="team-member-row" data-member="aripin">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">Dr. Aripin, S.H., M.H., MM., PhD.</span>
+          </div>
+          <p class="member-role">Associate</p>
+        </div>
+        <div class="team-member-row" data-member="amin">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">R. Amin Somar, S.H.</span>
+          </div>
+          <p class="member-role">Associate</p>
+        </div>
+        <div class="team-member-row" data-member="paulus">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">Paulus Subandi, S.H., M.H., CLA., CIL.</span>
+          </div>
+          <p class="member-role">Associate</p>
+        </div>
+        <div class="team-member-row" data-member="soleh">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">M. Soleh, S.H., M.H.</span>
+          </div>
+          <p class="member-role">Associate</p>
+        </div>
+        <div class="team-member-row" data-member="musradin">
+          <div class="member-name-line">
+            <span class="member-indicator"></span>
+            <span class="member-name">Al Musradin Adha, S.H., M.H.</span>
+          </div>
+          <p class="member-role">Associate</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section services" id="services">
+  <div class="container">
+    <span class="section-label" data-en="Practice Areas" data-id-text="Area Praktik">Area Praktik</span>
+    <h2 class="section-title" data-en="Key Products &amp; Services" data-id-text="Produk &amp; Layanan Utama">Produk & Layanan Utama</h2>
+    <p class="section-desc" data-en="Comprehensive legal solutions across all major practice areas, both litigation and non-litigation." data-id-text="Solusi hukum komprehensif di semua area praktik utama, baik litigasi maupun non-litigasi.">Solusi hukum komprehensif di semua area praktik utama, baik litigasi maupun non-litigasi.</p>
+    <div class="services-grid">
+      <div class="feat-card animate" data-color="indigo">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">001</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Litigation &amp; Non-Litigation" data-id-text="Litigasi &amp; Non-Litigasi">Litigasi & Non-Litigasi</span>
+          <h3 data-en="Civil Law" data-id-text="Hukum Perdata">Hukum Perdata</h3>
+          <p data-en="All civil law matters including contracts, property, inheritance, and family law." data-id-text="Semua lingkup perdata termasuk kontrak, properti, warisan, dan hukum keluarga.">Semua lingkup perdata termasuk kontrak, properti, warisan, dan hukum keluarga.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-1" data-color="amber">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">002</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Litigation &amp; Non-Litigation" data-id-text="Litigasi &amp; Non-Litigasi">Litigasi & Non-Litigasi</span>
+          <h3 data-en="Criminal Law" data-id-text="Hukum Pidana">Hukum Pidana</h3>
+          <p data-en="Criminal defense and prosecution across all types of criminal cases." data-id-text="Pembelaan dan penuntutan pidana untuk semua jenis perkara pidana.">Pembelaan dan penuntutan pidana untuk semua jenis perkara pidana.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-2" data-color="emerald">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">003</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M6 12h12"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Litigation &amp; Non-Litigation" data-id-text="Litigasi &amp; Non-Litigasi">Litigasi & Non-Litigasi</span>
+          <h3 data-en="Corporate Law" data-id-text="Corporate Lawyer">Corporate Lawyer</h3>
+          <p data-en="Corporate legal counsel, M&amp;A, compliance, and business structuring." data-id-text="Konsultan hukum korporasi, M&amp;A, kepatuhan, dan strukturisasi bisnis.">Konsultan hukum korporasi, M&A, kepatuhan, dan strukturisasi bisnis.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-3" data-color="rose">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">004</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Litigation &amp; Non-Litigation" data-id-text="Litigasi &amp; Non-Litigasi">Litigasi & Non-Litigasi</span>
+          <h3 data-en="Constitutional Law" data-id-text="Hukum Tatanegara">Hukum Tatanegara</h3>
+          <p data-en="Constitutional disputes and judicial review at the Constitutional Court." data-id-text="Sengketa konstitusional dan judicial review di Mahkamah Konstitusi.">Sengketa konstitusional dan judicial review di Mahkamah Konstitusi.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-4" data-color="sky">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">005</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M8 12h8"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Litigation &amp; Non-Litigation" data-id-text="Litigasi &amp; Non-Litigasi">Litigasi & Non-Litigasi</span>
+          <h3 data-en="Administrative Law" data-id-text="Hukum Tata Usaha Negara">Hukum Tata Usaha Negara</h3>
+          <p data-en="Administrative law disputes and government regulatory matters." data-id-text="Sengketa tata usaha negara dan permasalahan regulasi pemerintah.">Sengketa tata usaha negara dan permasalahan regulasi pemerintah.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card animate">
+        <div class="stat-num" data-count="50">50</div>
+        <div class="stat-label" data-en="Retainer Targets" data-id-text="Target Retainer">Target Retainer</div>
+        <div class="stat-desc" data-en="Corporate retainer partnerships per year" data-id-text="Kerjasama retainer korporasi per tahun">Kerjasama retainer korporasi per tahun</div>
+      </div>
+      <div class="stat-card animate animate-delay-1">
+        <div class="stat-num" data-count="60">60</div>
+        <div class="stat-label" data-en="Litigation Cases" data-id-text="Perkara Litigasi">Perkara Litigasi</div>
+        <div class="stat-desc" data-en="Litigation cases handled annually" data-id-text="Perkara litigasi yang ditangani per tahun">Perkara litigasi yang ditangani per tahun</div>
+      </div>
+      <div class="stat-card animate animate-delay-2">
+        <div class="stat-num" data-count="60">60</div>
+        <div class="stat-label" data-en="Consultations" data-id-text="Konsultasi">Konsultasi</div>
+        <div class="stat-desc" data-en="Non-litigation consultations per year" data-id-text="Layanan konsultasi non-litigasi per tahun">Layanan konsultasi non-litigasi per tahun</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPETITIVE ADVANTAGE ===== -->
+<section class="section advantage" id="advantage">
+  <div class="container">
+    <span class="section-label" data-en="Competitive Advantage" data-id-text="Keunggulan Kompetitif">Keunggulan Kompetitif</span>
+    <h2 class="section-title" data-en="Why Choose Us" data-id-text="Mengapa Memilih Kami">Mengapa Memilih Kami</h2>
+    <p class="advantage-quote" data-en="&ldquo;Integrity is the Foundation, Quality is the Standard, Completeness is the Commitment.&rdquo;" data-id-text="&ldquo;Integritas adalah Fondasi, Kualitas adalah Standar, Ketuntasan adalah Komitmen.&rdquo;">&ldquo;Integritas adalah Fondasi, Kualitas adalah Standar, Ketuntasan adalah Komitmen.&rdquo;</p>
+    <div class="advantage-grid">
+      <div class="feat-card animate" data-color="navy">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">001</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f1b2d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Foundation" data-id-text="Fondasi">Fondasi</span>
+          <h3 data-en="Integrity" data-id-text="Integritas">Integritas</h3>
+          <p data-en="Integrity as the foundation of every legal service we provide." data-id-text="Integritas sebagai fondasi dalam setiap layanan hukum yang kami berikan.">Integritas sebagai fondasi dalam setiap layanan hukum yang kami berikan.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-1" data-color="teal">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">002</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Standard" data-id-text="Standar">Standar</span>
+          <h3 data-en="Quality" data-id-text="Kualitas">Kualitas</h3>
+          <p data-en="Delivering high-quality legal services with professional excellence." data-id-text="Memberikan layanan hukum berkualitas tinggi dengan profesionalisme.">Memberikan layanan hukum berkualitas tinggi dengan profesionalisme.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-2" data-color="gold">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">003</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/><path d="M12 6v1"/><path d="M12 17v1"/><path d="M6 12h1"/><path d="M17 12h1"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Commitment" data-id-text="Komitmen">Komitmen</span>
+          <h3 data-en="Completeness" data-id-text="Ketuntasan">Ketuntasan</h3>
+          <p data-en="Thoroughness and completeness in every case resolution is our commitment." data-id-text="Ketuntasan dalam setiap penyelesaian perkara adalah komitmen kami.">Ketuntasan dalam setiap penyelesaian perkara adalah komitmen kami.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CSR ===== -->
+<section class="section csr" id="csr">
+  <div class="container">
+    <span class="section-label" data-en="Social Responsibility" data-id-text="Tanggung Jawab Sosial">Tanggung Jawab Sosial</span>
+    <h2 class="section-title" data-en="Corporate Social Responsibility" data-id-text="Tanggung Jawab Sosial Perusahaan">Tanggung Jawab Sosial Perusahaan</h2>
+    <p class="csr-quote" data-en="&ldquo;Social service with faith, knowledge, and good deeds.&rdquo;" data-id-text="&ldquo;Pengabdian sosial dengan iman, ilmu dan amal.&rdquo;">&ldquo;Pengabdian sosial dengan iman, ilmu dan amal.&rdquo;</p>
+    <div class="csr-grid">
+      <div class="feat-card animate" data-color="blue">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">001</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><path d="M6 8h2"/><path d="M6 12h2"/><path d="M16 8h2"/><path d="M16 12h2"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Education" data-id-text="Edukasi">Edukasi</span>
+          <h3 data-en="Legal Training & Seminars" data-id-text="Pelatihan & Seminar Hukum">Pelatihan & Seminar Hukum</h3>
+          <p data-en="Providing training, seminars in legal scope, and community legal awareness socialization." data-id-text="Memberikan pelatihan dan seminar dalam lingkup hukum serta sosialisasi kesadaran hukum masyarakat.">Memberikan pelatihan dan seminar dalam lingkup hukum serta sosialisasi kesadaran hukum masyarakat.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-1" data-color="rose">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">002</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Pro Bono" data-id-text="Pro Bono">Pro Bono</span>
+          <h3 data-en="Pro Bono Legal Aid" data-id-text="Bantuan Hukum Pro Bono">Bantuan Hukum Pro Bono</h3>
+          <p data-en="Providing pro deo and pro bono legal services for underprivileged communities in need of legal assistance." data-id-text="Memberikan layanan hukum pro deo dan pro bono bagi masyarakat miskin yang membutuhkan bantuan hukum.">Memberikan layanan hukum pro deo dan pro bono bagi masyarakat miskin yang membutuhkan bantuan hukum.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-2" data-color="emerald">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">003</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Charity" data-id-text="Amal">Amal</span>
+          <h3 data-en="Social Charity" data-id-text="Amal Sosial">Amal Sosial</h3>
+          <p data-en="Commitment to participating in social justice and social assistance programs." data-id-text="Komitmen turut serta dalam keadilan sosial dan bantuan sosial.">Komitmen turut serta dalam keadilan sosial dan bantuan sosial.</p>
+        </div>
+      </div>
+      <div class="feat-card animate animate-delay-3" data-color="amber">
+        <div class="feat-card-gradient"></div>
+        <div class="feat-card-index">004</div>
+        <div class="feat-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="feat-card-content">
+          <span class="feat-card-tag" data-en="Oversight" data-id-text="Pengawasan">Pengawasan</span>
+          <h3 data-en="Social Control" data-id-text="Kontrol Sosial">Kontrol Sosial</h3>
+          <p data-en="Standing hand in hand with the people as a force for social oversight." data-id-text="Bergandengan tangan dengan rakyat sebagai kontrol sosial.">Bergandengan tangan dengan rakyat sebagai kontrol sosial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="section-label" data-en="Get in Touch" data-id-text="Hubungi Kami">Hubungi Kami</span>
+        <h2 class="section-title" data-en="Let's Discuss Your Legal Needs" data-id-text="Mari Diskusikan Kebutuhan Hukum Anda">Mari Diskusikan Kebutuhan Hukum Anda</h2>
+        <p class="section-desc" data-en="Contact us for a consultation. We are ready to provide the best legal solutions for you." data-id-text="Hubungi kami untuk konsultasi. Kami siap memberikan solusi hukum terbaik untuk Anda.">Hubungi kami untuk konsultasi. Kami siap memberikan solusi hukum terbaik untuk Anda.</p>
+        <div class="contact-info-list">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4 data-en="Office Address" data-id-text="Alamat Kantor">Alamat Kantor</h4>
+              <p>Jakarta, Indonesia</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>ibpd@mail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <h4>Website</h4>
+              <p>www.ibpd-advocates.id</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form animate">
+        <h3 style="color:var(--white);font-size:1.2rem;margin-bottom:24px;" data-en="Send Us a Message" data-id-text="Kirim Pesan">Kirim Pesan</h3>
+        <div class="form-group">
+          <label class="form-label" data-en="Full Name" data-id-text="Nama Lengkap">Nama Lengkap</label>
+          <input type="text" class="form-input" placeholder="">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="">
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-en="Phone Number" data-id-text="Nomor Telepon">Nomor Telepon</label>
+          <input type="tel" class="form-input" placeholder="">
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-en="Message" data-id-text="Pesan">Pesan</label>
+          <textarea class="form-input" placeholder=""></textarea>
+        </div>
+        <button class="form-submit" data-en="Send Message" data-id-text="Kirim Pesan">Kirim Pesan</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-text">&copy; 2026 IBP & Dirman Advocate's. <span data-en="All rights reserved." data-id-text="Hak cipta dilindungi.">Hak cipta dilindungi.</span></p>
+    <div class="footer-links">
+      <a href="#" class="footer-link" data-en="Privacy Policy" data-id-text="Kebijakan Privasi">Kebijakan Privasi</a>
+      <a href="#" class="footer-link" data-en="Terms of Service" data-id-text="Syarat Layanan">Syarat Layanan</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+// ===== LANGUAGE TOGGLE =====
+let currentLang = 'id';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+  });
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id-text');
+    if (text) el.innerHTML = text;
+  });
+  document.documentElement.lang = lang;
+}
+
+// ===== NAVIGATION =====
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+  // Back to top
+  const btt = document.getElementById('backToTop');
+  btt.classList.toggle('visible', window.scrollY > 400);
+  // Active nav link
+  const sections = document.querySelectorAll('section[id]');
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (window.scrollY >= top) current = section.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-links .nav-link').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+// ===== COUNTER ANIMATION =====
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-count'));
+      if (target && !el.dataset.counted) {
+        el.dataset.counted = 'true';
+        let current = 0;
+        const step = Math.ceil(target / 40);
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(interval);
+          }
+          el.textContent = current;
+        }, 30);
+      }
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// ===== SMOOTH SCROLL for anchor links =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+// ===== TEXT CYCLE ANIMATION =====
+(function() {
+  const wrapper = document.querySelector('.text-cycle-wrapper');
+  if (!wrapper) return;
+  const items = wrapper.querySelectorAll('.text-cycle-item');
+  let current = 0;
+  const interval = 3000;
+  function updateWidth() {
+    const activeItem = items[current];
+    wrapper.style.width = activeItem.offsetWidth + 'px';
+  }
+  updateWidth();
+  window.addEventListener('resize', updateWidth);
+  setInterval(function() {
+    const prev = current;
+    current = (current + 1) % items.length;
+    items[prev].classList.remove('active');
+    items[prev].classList.add('exit');
+    items[current].classList.add('active');
+    wrapper.style.width = items[current].offsetWidth + 'px';
+    setTimeout(function() { items[prev].classList.remove('exit'); }, 400);
+  }, interval);
+})();
+
+// ===== WORD-BY-WORD ANIMATION (Digital Serenity) =====
+(function() {
+  setTimeout(function() {
+    document.querySelectorAll('.word-animate').forEach(function(word) {
+      var delay = parseInt(word.getAttribute('data-delay')) || 0;
+      setTimeout(function() {
+        word.style.animation = 'word-appear 0.8s ease-out forwards';
+      }, delay);
+    });
+  }, 500);
+})();
+
+// ===== MOUSE GRADIENT =====
+(function() {
+  var mg = document.getElementById('mouse-gradient');
+  if (!mg) return;
+  document.addEventListener('mousemove', function(e) {
+    mg.style.left = e.clientX + 'px';
+    mg.style.top = e.clientY + 'px';
+    mg.style.opacity = '1';
+  });
+  document.addEventListener('mouseleave', function() {
+    mg.style.opacity = '0';
+  });
+})();
+
+// ===== CLICK RIPPLE =====
+(function() {
+  document.addEventListener('click', function(e) {
+    var r = document.createElement('div');
+    r.className = 'ripple-effect';
+    r.style.left = e.clientX + 'px';
+    r.style.top = e.clientY + 'px';
+    document.body.appendChild(r);
+    setTimeout(function() { r.remove(); }, 1000);
+  });
+})();
+
+// ===== FLOATING PARTICLES ON SCROLL =====
+(function() {
+  var activated = false;
+  window.addEventListener('scroll', function() {
+    if (!activated) {
+      activated = true;
+      document.querySelectorAll('.hero-floating').forEach(function(el) {
+        el.style.animationPlayState = 'running';
+        el.style.opacity = '';
+      });
+    }
+  });
+})();
+
+// ===== TEAM SHOWCASE HOVER INTERACTION =====
+(function() {
+  var photoCards = document.querySelectorAll('.team-photo-card');
+  var memberRows = document.querySelectorAll('.team-member-row');
+  var allItems = [];
+
+  photoCards.forEach(function(el) { allItems.push(el); });
+  memberRows.forEach(function(el) { allItems.push(el); });
+
+  function setActive(memberId) {
+    photoCards.forEach(function(card) {
+      if (card.dataset.member === memberId) {
+        card.classList.add('active');
+        card.classList.remove('dimmed');
+      } else {
+        card.classList.remove('active');
+        card.classList.add('dimmed');
+      }
+    });
+    memberRows.forEach(function(row) {
+      if (row.dataset.member === memberId) {
+        row.classList.add('active');
+        row.classList.remove('dimmed');
+      } else {
+        row.classList.remove('active');
+        row.classList.add('dimmed');
+      }
+    });
+  }
+
+  function clearActive() {
+    photoCards.forEach(function(card) {
+      card.classList.remove('active', 'dimmed');
+    });
+    memberRows.forEach(function(row) {
+      row.classList.remove('active', 'dimmed');
+    });
+  }
+
+  allItems.forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      setActive(el.dataset.member);
+    });
+    el.addEventListener('mouseleave', function() {
+      clearActive();
+    });
+  });
+})();
+</script>
+</body>
+</html>
